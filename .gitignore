@@ -38,3 +38,8 @@ out/
 
 ### yml ###
 application.yml
+
+### temp ###
+Basket.java
+Mart.java
+Product.java
