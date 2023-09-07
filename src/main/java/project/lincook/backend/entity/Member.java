@@ -3,10 +3,8 @@ package project.lincook.backend.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,4 +22,10 @@ public class Member {
     private String address;
     private float latitude;
     private float longitude;
+
+    @OneToMany(mappedBy = "member")
+    private List<Basket> baskets;
+
+    @OneToMany(mappedBy = "member")
+    private List<Contents> contentsList;
 }
