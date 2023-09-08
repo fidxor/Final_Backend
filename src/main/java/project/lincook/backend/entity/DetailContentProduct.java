@@ -10,18 +10,15 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @Getter
 @Setter
-public class Contents {
+public class DetailContentProduct {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "contents_id")
+    @Id @GeneratedValue
+    @Column(name = "detail_content_product_id")
     private Long id;
 
-    private String title;
-    private String description;
-    private String url;
+    @ManyToOne(fetch = LAZY)
+    private DetailContent detailContent;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
+    private Product product;
 }

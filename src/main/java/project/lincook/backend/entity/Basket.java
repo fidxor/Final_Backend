@@ -4,6 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Getter
@@ -14,19 +18,16 @@ public class Basket {
     @Column(name = "basket_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @OneToMany(mappedBy = "basket")
+    private List<BasketProduct> basketProducts = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "mart_id")
-    private Mart mart;
+    @OneToMany(mappedBy = "basket")
+    private List<BasketMart> basketMarts = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "contents_id")
-    private Contents contents;
+    @OneToMany(mappedBy = "basket")
+    private List<BasketDetailContent> basketDetailContents = new ArrayList<>();
 }

@@ -22,10 +22,4 @@ public class Member {
     private String address;
     private float latitude;
     private float longitude;
-
-    @OneToMany(mappedBy = "member")
-    private List<Basket> baskets;
-
-    @OneToMany(mappedBy = "member")
-    private List<Contents> contentsList;
 }

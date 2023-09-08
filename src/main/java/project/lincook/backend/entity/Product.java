@@ -5,6 +5,8 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Entity
 @Getter
 public class Product {
@@ -13,18 +15,20 @@ public class Product {
     @Column(name = "product_id")
     private Long id;
 
-    private String name;
+    private int product_code;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "mart_id")
     private Mart mart;
+
+    private String name;
     private String capacity;
+
+    private LocalDateTime add_date;
 
     private String origin_price;
     private String sale_price;
 
     private String img_url;
     private String detail_url;
-
-    private LocalDateTime add_time;
 }
