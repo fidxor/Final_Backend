@@ -24,4 +24,14 @@ public class Contents {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    public static Contents createContents(String title, String description, String url, Member member) {
+        Contents contents = new Contents();
+        contents.setTitle(title);
+        contents.setDescription(description);
+        contents.setUrl(url);
+        contents.setMember(member);
+
+        return contents;
+    }
 }

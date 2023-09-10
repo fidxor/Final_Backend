@@ -21,4 +21,14 @@ public class DetailContentProduct {
 
     @ManyToOne(fetch = LAZY)
     private Product product;
+
+    public static DetailContentProduct createDetailContentProduct(DetailContent detailContent, Product product) {
+
+        DetailContentProduct detailContentProduct = new DetailContentProduct();
+
+        detailContentProduct.setDetailContent(detailContent);
+        detailContentProduct.setProduct(product);
+
+        return detailContentProduct;
+    }
 }
