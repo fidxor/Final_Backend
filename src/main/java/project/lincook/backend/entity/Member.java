@@ -20,6 +20,6 @@ public class Member {
     private String email;
     private Gender gender;  // Enum : M, W
     private String address;
-    private float latitude;
-    private float longitude;
+    private double latitude;
+    private double longitude;
 }

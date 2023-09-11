@@ -26,8 +26,8 @@ public class Product {
 
     private LocalDateTime add_date;
 
-    private String origin_price;
-    private String sale_price;
+    private int origin_price;
+    private int sale_price;
 
     private String img_url;
     private String detail_url;

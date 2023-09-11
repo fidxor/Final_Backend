@@ -19,7 +19,6 @@ public class Mart {
     private String address;
     private String phone;
 
-    // TODO : 위도, 경도 좌표가 들어간다고 하면 추가
-    private float latitude;
-    private float longitude;
+    private double latitude;
+    private double longitude;
 }
