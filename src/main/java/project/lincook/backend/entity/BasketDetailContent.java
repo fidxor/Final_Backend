@@ -21,4 +21,13 @@ public class BasketDetailContent {
 
     @ManyToOne(fetch = LAZY)
     private Contents contents;
+
+    public static BasketDetailContent createBasketDetailContent(Basket basket, Contents contents) {
+        BasketDetailContent bdc = new BasketDetailContent();
+
+        bdc.setBasket(basket);
+        bdc.setContents(contents);
+
+        return bdc;
+    }
 }

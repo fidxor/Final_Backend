@@ -45,7 +45,7 @@ public class ContentsController {
      * @param request
      * @return
      */
-    @PostMapping("/createContents")
+    @PostMapping("/create-contents")
     public CreateContentsResponse createContents(@RequestBody CreateContentsRequest request) {
 
         Long contentId = contentsService.addContents(request.member_id, request.title, request.description, request.url);

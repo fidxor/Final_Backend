@@ -5,7 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static javax.persistence.FetchType.LAZY;
 
@@ -22,12 +24,27 @@ public class Basket {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "basket")
-    private List<BasketProduct> basketProducts = new ArrayList<>();
+    @OneToMany(fetch = LAZY, mappedBy = "basket", cascade = CascadeType.ALL)
+    private Set<BasketProduct> basketProducts = new HashSet<>();
 
-    @OneToMany(mappedBy = "basket")
-    private List<BasketMart> basketMarts = new ArrayList<>();
+    @OneToMany(fetch = LAZY, mappedBy = "basket", cascade = CascadeType.ALL)
+    private Set<BasketMart> basketMarts = new HashSet<>();
 
-    @OneToMany(mappedBy = "basket")
-    private List<BasketDetailContent> basketDetailContents = new ArrayList<>();
+    @OneToMany(fetch = LAZY, mappedBy = "basket", cascade = CascadeType.ALL)
+    private Set<BasketDetailContent> basketDetailContents = new HashSet<>();
+
+    public void addBasketProduct(BasketProduct basketProduct) {
+        basketProducts.add(basketProduct);
+        basketProduct.setBasket(this);
+    }
+
+    public void addBasketMart(BasketMart basketMart) {
+        basketMarts.add(basketMart);
+        basketMart.setBasket(this);
+    }
+
+    public void addBasketDetailContent(BasketDetailContent basketDetailContent) {
+        basketDetailContents.add(basketDetailContent);
+        basketDetailContent.setBasket(this);
+    }
 }

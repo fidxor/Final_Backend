@@ -22,4 +22,13 @@ public class BasketProduct {
     @ManyToOne(fetch = LAZY)
     private Product product;
 
+    public static BasketProduct createBasketProduct(Basket basket, Product product) {
+        BasketProduct basketProduct = new BasketProduct();
+
+        basketProduct.setBasket(basket);
+        basketProduct.setProduct(product);
+
+        return basketProduct;
+    }
+
 }

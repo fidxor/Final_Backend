@@ -1,5 +1,6 @@
 package project.lincook.backend.controller;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import project.lincook.backend.dto.ContentsDto;
 import project.lincook.backend.dto.DetailContentDto;
 import project.lincook.backend.dto.MartDto;
 import project.lincook.backend.dto.ProductDto;
+import project.lincook.backend.entity.Contents;
 import project.lincook.backend.entity.DetailContent;
 import project.lincook.backend.entity.Mart;
 import project.lincook.backend.entity.Product;
@@ -30,21 +32,30 @@ public class DetailContentController {
     private final MartRepository martRepository;
 
     @GetMapping("/detail-content")
-    public List<DetailContentDto> detailContentResult(@RequestBody DetailContentRequest request) {
+    public DetailContentDto detailContentResult(@RequestBody DetailContentRequest request) {
         List<DetailContent> detailContentList = detailContentRepository.findByContentsId(request.contents_id);
 
-        List<DetailContentDto> collect = detailContentList.stream()
-                .map(d -> new DetailContentDto(d))
+        List<DetailContentCollect> collect = detailContentList.stream()
+                .map(d -> new DetailContentCollect(d))
                 .collect(Collectors.toList());
 
-        // TODO : product_code 값이 같은 product들 불러와서 해당 product들 마트 정보 가져오고, 마트 거리 계산해서 리스트 만들기.
-        for (DetailContentDto detailContentDto : collect) {
+        // collect가 리스트 이기 때문에 collect내의 모든 값에 Contents 객체가 같은 값으로 들어가게 된다.
+        // Contnets 객체 하나만 Dto에 넣어 주자.
+        ContentsDto contentsDto = collect.get(0).contentsDto;
+
+        List<DetailContentDto.ResponseDetailContent> responseDetailContentList = new ArrayList<>();
+
+        for (DetailContentCollect detailContentDto : collect) {
             // 식재료 code 번호로 같은 code의 Product 정보를 가져온다.
             int code = detailContentDto.getProductDto().getCode();
 
             List<Product> products = productRepository.findByCode(code);
+
             List<MartDto> martDtoList = new ArrayList<>();
+
             for (Product product : products) {
+
+                ProductDto productDto = new ProductDto(product);
                 // 각각의 Product정보로 Mart정보를 가져온다.
                 Long martId = product.getMart().getId();
 
@@ -59,10 +70,13 @@ public class DetailContentController {
                     martDtoList.add(martDto);
                 }
 
-                detailContentDto.setMartDtoList(martDtoList);
+                DetailContentDto.ResponseDetailContent responseDetailContent = new DetailContentDto.ResponseDetailContent(productDto, martDtoList);
+
+                responseDetailContentList.add(responseDetailContent);
+
             }
         }
-        return collect;
+        return new DetailContentDto(contentsDto, responseDetailContentList);
     }
 
     private static double distance(double myLat, double myLong, double martLat, double martLong) {
@@ -94,4 +108,20 @@ public class DetailContentController {
         private double latitude;
         private double longitude;
     }
+
+    @Data
+    static class DetailContentCollect {
+        private Long detailContentId;
+        private ContentsDto contentsDto;
+        private ProductDto productDto;
+        private List<MartDto> martDtoList = new ArrayList<>();
+
+        public DetailContentCollect(DetailContent dc) {
+            this.detailContentId = dc.getId();
+            this.contentsDto = new ContentsDto(dc.getContents().getId(), dc.getContents().getMember().getId(), dc.getContents().getTitle(),
+                    dc.getContents().getDescription(), dc.getContents().getUrl());
+            this.productDto = new ProductDto(dc.getDetailContentProducts().get(0).getProduct());
+        }
+    }
+
 }

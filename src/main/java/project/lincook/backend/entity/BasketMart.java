@@ -21,4 +21,14 @@ public class BasketMart {
 
     @ManyToOne(fetch = LAZY)
     private Mart mart;
+
+    public static BasketMart createBasketMart(Basket basket, Mart mart) {
+
+        BasketMart basketMart = new BasketMart();
+
+        basketMart.setBasket(basket);
+        basketMart.setMart(mart);
+
+        return basketMart;
+    }
 }
