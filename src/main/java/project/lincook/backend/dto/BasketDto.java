@@ -1,31 +1,54 @@
 package project.lincook.backend.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import project.lincook.backend.entity.*;
+import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class BasketDto {
+@AllArgsConstructor
+public class BasketDto<T> {
 
-    private ContentsDto contentsDto;
-    private MartDto martDto;
-    private ProductDto productDto;
+    private T data;
 
-    public BasketDto(Basket basket) {
-        Contents contents = List.copyOf(basket.getBasketDetailContents()).get(0).getContents();
-        Mart mart = List.copyOf(basket.getBasketMarts()).get(0).getMart();
-        Product product = List.copyOf(basket.getBasketProducts()).get(0).getProduct();
+    /**
+     * 하나의 컨텐츠가 마트를 리스트로 가지고있고
+     * 또 각각의 마트가 상품을 리스트로 가지고 있다.
+     * 그리고 BasketDto 는 컨텐츠를 리스트로 가진다.
+     */
+    @Data
+    @Getter
+    public static class BasketContents {
+        private ContentsDto contentsDto;
+        private List<BasketMartProduct> basketMartProductList = new ArrayList<>();
 
-        System.out.println(contents);
-        System.out.println(mart);
-        System.out.println(product);
+        public void addMartProductList(BasketMartProduct martProduct) {
+            basketMartProductList.add(martProduct);
+        }
 
-        this.contentsDto = new ContentsDto(contents.getId(), contents.getMember().getId(),
-                contents.getTitle(), contents.getDescription(), contents.getUrl());
-        // TODO : 거리계산...
-        this.martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), 0.1);
-        this.productDto = new ProductDto(product);
+        public BasketContents(ContentsDto contentsDto, BasketMartProduct martProduct) {
+            this.contentsDto = contentsDto;
+            if(martProduct != null)
+                addMartProductList(martProduct);
+        }
+    }
+
+    @Data
+    public static class BasketMartProduct {
+        private MartDto martDto;
+        private List<ProductDto> productDtoList = new ArrayList<>();
+
+        public void addProductDtoList(ProductDto productDto) {
+            productDtoList.add(productDto);
+        }
+
+        public BasketMartProduct(MartDto martDto, ProductDto productDto) {
+            this.martDto = martDto;
+            if(productDto != null)
+                addProductDtoList(productDto);
+        }
     }
 
 }

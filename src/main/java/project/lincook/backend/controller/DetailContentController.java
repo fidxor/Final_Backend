@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import project.lincook.backend.common.DistanceCal;
 import project.lincook.backend.dto.ContentsDto;
 import project.lincook.backend.dto.DetailContentDto;
 import project.lincook.backend.dto.MartDto;
@@ -62,7 +63,7 @@ public class DetailContentController {
                 Mart mart = martRepository.findOne(martId);
 
                 // 위도 경도 값으로 현재 나의 위치와 마트위치의 거리 계산
-                double kilometer = distance(request.latitude, request.longitude, mart.getLatitude(), mart.getLongitude());
+                double kilometer = DistanceCal.distance(request.latitude, request.longitude, mart.getLatitude(), mart.getLongitude());
 
                 // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다.
                 if (kilometer < 6.0) {
@@ -77,29 +78,6 @@ public class DetailContentController {
             }
         }
         return new DetailContentDto(contentsDto, responseDetailContentList);
-    }
-
-    private static double distance(double myLat, double myLong, double martLat, double martLong) {
-        double theta = myLong - martLong;
-        double dist = Math.sin(deg2rad(myLat)) * Math.sin(deg2rad(martLat)) + Math.cos(deg2rad(myLat)) * Math.cos(deg2rad(martLat)) * Math.cos(deg2rad(theta));
-
-        dist = Math.acos(dist);
-        dist = rad2deg(dist);
-        dist = dist * 60 * 1.1515;
-
-        dist = dist * 1.609344;
-
-        return Math.floor(dist * 100) / 100.0;
-    }
-
-    // This function converts decimal degrees to radians
-    private static double deg2rad(double deg) {
-        return (deg * Math.PI / 180.0);
-    }
-
-    // This function converts radians to decimal degrees
-    private static double rad2deg(double rad) {
-        return (rad * 180 / Math.PI);
     }
 
     @Data

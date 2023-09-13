@@ -9,6 +9,8 @@ import project.lincook.backend.repository.DetailContentRepository;
 import project.lincook.backend.repository.MemberRepository;
 import project.lincook.backend.repository.ProductRepository;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -25,6 +27,8 @@ public class ContentsService {
         // 멤버엔티티 조회
         Member member = memberRepository.findOne(memberId);
 
+        // 등록된 영상인지 확인.
+        validateDuplicateContents(url);
         // 컨텐츠 생성
         Contents contents = Contents.createContents(title, description, url, member);
 
@@ -33,6 +37,14 @@ public class ContentsService {
 
         return contents.getId();
 
+    }
+
+    private void validateDuplicateContents(String url) {
+        List<Contents> contentsList = contentsRepository.findByUrl(url);
+
+        if (!contentsList.isEmpty()) {
+            throw new IllegalStateException("이미 등록된 컨텐츠 입니다.");
+        }
     }
 
     @Transactional

@@ -22,8 +22,6 @@ public class ContentsRepository {
     }
 
     public List<Contents> findAll(int offset, int limit) {
-        System.out.println(offset);
-        System.out.println(limit);
         return em.createQuery("select c from Contents c", Contents.class)
                 .setFirstResult(offset)
                 .setMaxResults(limit)
@@ -34,6 +32,12 @@ public class ContentsRepository {
                 .setParameter("id", id)
                 .setFirstResult(offset)
                 .setMaxResults(limit)
+                .getResultList();
+    }
+
+    public List<Contents> findByUrl(String url) {
+        return em.createQuery("select c from Contents c where c.url = :url", Contents.class)
+                .setParameter("url", url)
                 .getResultList();
     }
 }

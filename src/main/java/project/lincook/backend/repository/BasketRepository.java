@@ -34,4 +34,23 @@ public class BasketRepository {
                 .setParameter("memberId", memberId)
                 .getResultList();
     }
+
+    public List<Basket> findByProductID(Long memberId, Long contentsId, Long martId, Long productId) {
+        return em.createQuery("select b from Basket b" +
+                        " join fetch b.basketDetailContents bdc" +
+                        " join fetch b.basketMarts bm" +
+                        " join fetch b.basketProducts bp" +
+                        " join fetch bdc.contents c" +
+                        " join fetch bm.mart m" +
+                        " join fetch bp.product p" +
+                        " where b.member.id = :memberId" +
+                        " and bdc.contents.id = :contentsId" +
+                        " and bm.mart.id = :martId" +
+                        " and bp.product.id = :productId")
+                .setParameter("memberId", memberId)
+                .setParameter("contentsId", contentsId)
+                .setParameter("martId", martId)
+                .setParameter("productId", productId)
+                .getResultList();
+    }
 }
