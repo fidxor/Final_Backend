@@ -2,15 +2,9 @@ package project.lincook.backend.controller;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.lincook.backend.common.DistanceCal;
-import project.lincook.backend.dto.BasketDto;
-import project.lincook.backend.dto.ContentsDto;
-import project.lincook.backend.dto.MartDto;
-import project.lincook.backend.dto.ProductDto;
+import project.lincook.backend.dto.*;
 import project.lincook.backend.entity.Basket;
 import project.lincook.backend.entity.Contents;
 import project.lincook.backend.entity.Mart;
@@ -29,9 +23,14 @@ public class BasketController {
     private final BasketService basketService;
     private final BasketRepository basketRepository;
 
+    /**
+     * 해당 유저의 장바구니 정보를 모두 찾아서 컨텐츠별, 마트별로 분류해 Dto 에 담아준다.
+     * @param request
+     * @return
+     */
     @GetMapping("/basket-info")
     public BasketDto findBaskets(@RequestBody findBasketRequest request) {
-        List<Basket> baskets = basketRepository.findByMemberID(request.memberId);
+        List<Basket> baskets = basketRepository.findAllByMemberID(request.memberId);
 
         List<findBasketCollect> collect = baskets.stream()
                 .map(b -> new findBasketCollect(b, request.latitude, request.longitude))
@@ -53,7 +52,7 @@ public class BasketController {
                 basketContentsList.add(basketContents);
 
                 // 장바구니에 처음 입력되는 contents이기 때문에 마트정보와 상품정보도 바로 넣어준다.
-                BasketDto.BasketMartProduct martProduct = new BasketDto.BasketMartProduct(basketCollect.martDto, basketCollect.productDto);
+                BasketDto.BasketMartProduct martProduct = new BasketDto.BasketMartProduct(basketCollect.martDto, basketCollect.basketProductDto);
                 basketContents.addMartProductList(martProduct);
             } else {
                 // contents에 같은 마트 정보가 있는지 확인.
@@ -64,16 +63,30 @@ public class BasketController {
 
                 if (martProduct != null) {
                     // 장바구니 컨텐츠안에 같은 마트정보가 있을 경우 상품정보만 추가해준다.
-                    martProduct.addProductDtoList(basketCollect.productDto);
+                    martProduct.addProductDtoList(basketCollect.basketProductDto);
                 } else {
                     // 새로 마트정보와 상품 정보를 추가해 준다.
-                    BasketDto.BasketMartProduct basketMartProduct = new BasketDto.BasketMartProduct(basketCollect.martDto, basketCollect.productDto);
+                    BasketDto.BasketMartProduct basketMartProduct = new BasketDto.BasketMartProduct(basketCollect.martDto, basketCollect.basketProductDto);
                     bb.addMartProductList(basketMartProduct);
                 }
             }
         }
 
         return new BasketDto(basketContentsList);
+    }
+
+    /**
+     * 장바구니에서 특정 상품을 삭제한다.
+     * @param request
+     * @return
+     */
+    @DeleteMapping("/delete-basket")
+    public Long deleteBasket(@RequestBody DeleteBasketRequest request) {
+        // 지우려는 상품이 db에 저장되어 있는 상품인지 확인한다.
+        validateIncludeBasket(request.memberId, request.basketId);
+
+        Long basketId = basketService.deleteBasket(request.basketId);
+        return basketId;
     }
 
     /**
@@ -90,8 +103,24 @@ public class BasketController {
         return basketId;
     }
 
+    /**
+     * 해당상품이 db에 있는지 확인.
+     * @param basketId
+     */
+    private void validateIncludeBasket(Long memberId, Long basketId) {
+        List<Basket> basket = basketRepository.findByMemberId(memberId, basketId);
+
+        if (basket.isEmpty()) {
+            throw new IllegalStateException("해당 상품이 장바구니에 존재하지 않습니다.");
+        }
+    }
+
+    /**
+     * 동일 컨텐츠의 동일 마트에 같은 상품이 장바구니에 등록되어있는지 확인.
+     * @param request
+     */
     private void validateDuplicateBasket(CreateBasketRequest request) {
-        List<Basket> baskets = basketRepository.findByProductID(request.memberId, request.contentsId, request.martId, request.productId);
+        List<Basket> baskets = basketRepository.findAllByProductID(request.memberId, request.contentsId, request.martId, request.productId);
 
         if (!baskets.isEmpty()) {
             throw new IllegalStateException("이미 등록되어있는 상품입니다.");
@@ -107,6 +136,13 @@ public class BasketController {
     }
 
     @Data
+    static class DeleteBasketRequest {
+        private Long memberId;
+        private Long basketId;
+    }
+
+
+    @Data
     static class findBasketRequest {
         private Long memberId;
         private double latitude;
@@ -117,7 +153,7 @@ public class BasketController {
     static class findBasketCollect {
         private ContentsDto contentsDto;
         private MartDto martDto;
-        private ProductDto productDto;
+        private BasketProductDto basketProductDto;
 
         public findBasketCollect(Basket basket, double latitude, double longitude) {
             Contents contents = List.copyOf(basket.getBasketDetailContents()).get(0).getContents();
@@ -129,8 +165,8 @@ public class BasketController {
 
             double distance = DistanceCal.distance(latitude, longitude, mart.getLatitude(), mart.getLongitude());
             this.martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), distance);
-            this.productDto = new ProductDto(product);
+            this.basketProductDto = new BasketProductDto(basket.getId(), product);
         }
     }
-
 }
+

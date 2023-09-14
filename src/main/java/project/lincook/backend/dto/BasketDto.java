@@ -38,16 +38,16 @@ public class BasketDto<T> {
     @Data
     public static class BasketMartProduct {
         private MartDto martDto;
-        private List<ProductDto> productDtoList = new ArrayList<>();
+        private List<BasketProductDto> basketProductDtoList = new ArrayList<>();
 
-        public void addProductDtoList(ProductDto productDto) {
-            productDtoList.add(productDto);
+        public void addProductDtoList(BasketProductDto basketProductDto) {
+            basketProductDtoList.add(basketProductDto);
         }
 
-        public BasketMartProduct(MartDto martDto, ProductDto productDto) {
+        public BasketMartProduct(MartDto martDto, BasketProductDto basketProductDto) {
             this.martDto = martDto;
-            if(productDto != null)
-                addProductDtoList(productDto);
+            if(basketProductDto != null)
+                addProductDtoList(basketProductDto);
         }
     }
 

@@ -17,32 +17,37 @@ public class BasketRepository {
         em.persist(basket);
     }
 
+    public void remove(Basket basket) {
+        em.remove(basket);
+    }
+
     public Basket findOne(Long id) {
         return em.find(Basket.class, id);
     }
 
-    public List<Basket> findByMemberID(Long memberId) {
-        System.out.println(memberId);
+    public List<Basket> findByMemberId(Long memberId, Long basketId) {
+        return em.createQuery("select b from Basket b where b.member.id = :memberId and b.id = :basketId")
+                .setParameter("memberId", memberId)
+                .setParameter("basketId", basketId)
+                .getResultList();
+    }
+
+    public List<Basket> findAllByMemberID(Long memberId) {
+
         return em.createQuery("select b from Basket b" +
                 " join fetch b.basketDetailContents bdc" +
                 " join fetch b.basketMarts bm" +
                 " join fetch b.basketProducts bp" +
-                " join fetch bdc.contents c" +
-                " join fetch bm.mart m" +
-                " join fetch bp.product p" +
                 " where b.member.id = :memberId")
                 .setParameter("memberId", memberId)
                 .getResultList();
     }
 
-    public List<Basket> findByProductID(Long memberId, Long contentsId, Long martId, Long productId) {
+    public List<Basket> findAllByProductID(Long memberId, Long contentsId, Long martId, Long productId) {
         return em.createQuery("select b from Basket b" +
                         " join fetch b.basketDetailContents bdc" +
                         " join fetch b.basketMarts bm" +
                         " join fetch b.basketProducts bp" +
-                        " join fetch bdc.contents c" +
-                        " join fetch bm.mart m" +
-                        " join fetch bp.product p" +
                         " where b.member.id = :memberId" +
                         " and bdc.contents.id = :contentsId" +
                         " and bm.mart.id = :martId" +

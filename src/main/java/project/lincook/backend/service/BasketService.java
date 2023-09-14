@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import project.lincook.backend.entity.*;
 import project.lincook.backend.repository.*;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -41,5 +43,15 @@ public class BasketService {
         basketRepository.save(basket);
 
         return basket.getId();
+    }
+
+    @Transactional
+    public Long deleteBasket(Long basketId) {
+        Basket basket = basketRepository.findOne(basketId);
+
+        // TODO: Basket entity에서 id값으로 삭제를 하면 cascade 관계로 묶여있는 것들도 전부 삭제 되겠지??????돼야 한다.꼭......
+        basketRepository.remove(basket);
+
+        return 0L;
     }
 }
