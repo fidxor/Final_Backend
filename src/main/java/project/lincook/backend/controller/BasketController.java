@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import project.lincook.backend.common.DistanceCal;
+import project.lincook.backend.common.DistanceCollectionSort;
 import project.lincook.backend.dto.*;
 import project.lincook.backend.entity.Basket;
 import project.lincook.backend.entity.Contents;
@@ -13,6 +14,7 @@ import project.lincook.backend.repository.BasketRepository;
 import project.lincook.backend.service.BasketService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,6 +71,11 @@ public class BasketController {
                     BasketDto.BasketMartProduct basketMartProduct = new BasketDto.BasketMartProduct(basketCollect.martDto, basketCollect.basketProductDto);
                     bb.addMartProductList(basketMartProduct);
                 }
+            }
+
+            // 마트 거리에 따라서 sort 해준다.
+            if (bb != null) {
+                bb.getBasketMartProductList().sort(new DistanceCollectionSort.DistanceCollectionSortByBasketMart());
             }
         }
 
@@ -163,6 +170,7 @@ public class BasketController {
             this.contentsDto = new ContentsDto(contents.getId(), contents.getMember().getId(),
                     contents.getTitle(), contents.getDescription(), contents.getUrl());
 
+            // 현재 위치와 마트와의 거리를 계산해준다.
             double distance = DistanceCal.distance(latitude, longitude, mart.getLatitude(), mart.getLongitude());
             this.martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), distance);
             this.basketProductDto = new BasketProductDto(basket.getId(), product);

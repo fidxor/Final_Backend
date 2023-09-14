@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import project.lincook.backend.common.DistanceCal;
+import project.lincook.backend.common.DistanceCollectionSort;
 import project.lincook.backend.dto.ContentsDto;
 import project.lincook.backend.dto.DetailContentDto;
 import project.lincook.backend.dto.MartDto;
@@ -21,6 +21,7 @@ import project.lincook.backend.repository.MartRepository;
 import project.lincook.backend.repository.ProductRepository;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,13 +66,16 @@ public class DetailContentController {
                 // 위도 경도 값으로 현재 나의 위치와 마트위치의 거리 계산
                 double kilometer = DistanceCal.distance(request.latitude, request.longitude, mart.getLatitude(), mart.getLongitude());
 
-                // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다.
+                // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다햣
                 if (kilometer < 6.0) {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
                     martDtoList.add(martDto);
                 }
 
                 DetailContentDto.ResponseDetailContent responseDetailContent = new DetailContentDto.ResponseDetailContent(productDto, martDtoList);
+
+                // 마트 거리별로 오름차순으로 정렬한다.
+                responseDetailContent.getMartDtoList().sort(new DistanceCollectionSort.DistanceCollectionSortByMartDto());
 
                 responseDetailContentList.add(responseDetailContent);
 
