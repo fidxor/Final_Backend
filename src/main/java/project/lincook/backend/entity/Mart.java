@@ -1,25 +1,24 @@
 package project.lincook.backend.entity;
 
 import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @Getter
-@Setter
-public class Member {
+public class Mart {
 
     @Id @GeneratedValue
-    @Column(name = "member_id")
+    @Column(name = "mart_id")
     private Long id;
 
-    private String password;
     private String name;
-    private String email;
-    private Gender gender;  // Enum : M, W
     private String address;
+    private String phone;
+
     private double latitude;
     private double longitude;
 }
