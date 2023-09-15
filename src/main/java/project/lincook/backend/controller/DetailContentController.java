@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import project.lincook.backend.common.DistanceCal;
 import project.lincook.backend.common.DistanceCollectionSort;
-import project.lincook.backend.dto.ContentsDto;
-import project.lincook.backend.dto.DetailContentDto;
-import project.lincook.backend.dto.MartDto;
-import project.lincook.backend.dto.ProductDto;
+import project.lincook.backend.dto.*;
 import project.lincook.backend.entity.Contents;
 import project.lincook.backend.entity.DetailContent;
 import project.lincook.backend.entity.Mart;
@@ -34,7 +31,7 @@ public class DetailContentController {
     private final MartRepository martRepository;
 
     @GetMapping("/detail-content")
-    public DetailContentDto detailContentResult(@RequestBody DetailContentRequest request) {
+    public Response detailContentResult(@RequestBody DetailContentRequest request) {
         List<DetailContent> detailContentList = detailContentRepository.findByContentsId(request.contents_id);
 
         List<DetailContentCollect> collect = detailContentList.stream()
@@ -81,7 +78,7 @@ public class DetailContentController {
 
             }
         }
-        return new DetailContentDto(contentsDto, responseDetailContentList);
+        return Response.success(new DetailContentDto(contentsDto, responseDetailContentList));
     }
 
     @Data

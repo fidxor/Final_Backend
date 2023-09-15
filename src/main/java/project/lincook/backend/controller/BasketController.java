@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import project.lincook.backend.common.DistanceCal;
 import project.lincook.backend.common.DistanceCollectionSort;
+import project.lincook.backend.common.exception.ErrorCode;
+import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.*;
 import project.lincook.backend.entity.Basket;
 import project.lincook.backend.entity.Contents;
@@ -14,7 +16,6 @@ import project.lincook.backend.repository.BasketRepository;
 import project.lincook.backend.service.BasketService;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,11 +28,12 @@ public class BasketController {
 
     /**
      * 해당 유저의 장바구니 정보를 모두 찾아서 컨텐츠별, 마트별로 분류해 Dto 에 담아준다.
+     *
      * @param request
      * @return
      */
     @GetMapping("/basket-info")
-    public BasketDto findBaskets(@RequestBody findBasketRequest request) {
+    public Response findBaskets(@RequestBody findBasketRequest request) {
         List<Basket> baskets = basketRepository.findAllByMemberID(request.memberId);
 
         List<findBasketCollect> collect = baskets.stream()
@@ -79,7 +81,7 @@ public class BasketController {
             }
         }
 
-        return new BasketDto(basketContentsList);
+        return Response.success(new BasketDto(basketContentsList));
     }
 
     /**
@@ -118,7 +120,7 @@ public class BasketController {
         List<Basket> basket = basketRepository.findByMemberId(memberId, basketId);
 
         if (basket.isEmpty()) {
-            throw new IllegalStateException("해당 상품이 장바구니에 존재하지 않습니다.");
+            throw new LincookAppException(ErrorCode.NOT_INCLUDE_BASKET_PRODUCT, String.format("basketId :", basketId));
         }
     }
 
@@ -130,7 +132,7 @@ public class BasketController {
         List<Basket> baskets = basketRepository.findAllByProductID(request.memberId, request.contentsId, request.martId, request.productId);
 
         if (!baskets.isEmpty()) {
-            throw new IllegalStateException("이미 등록되어있는 상품입니다.");
+            throw new LincookAppException(ErrorCode.DUPLICATED_BASKET_PRODUCT, String.format("productId :", request.productId));
         }
     }
 

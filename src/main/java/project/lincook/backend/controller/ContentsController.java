@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import project.lincook.backend.dto.ContentsDto;
+import project.lincook.backend.dto.Response;
 import project.lincook.backend.entity.Contents;
 import project.lincook.backend.entity.Member;
 import project.lincook.backend.repository.ContentsRepository;
@@ -29,14 +30,14 @@ public class ContentsController {
      * @return
      */
     @GetMapping("/main")
-    public List<ContentsDto> findContents(@RequestBody findContentsRequest request) {
+    public Response findContents(@RequestBody findContentsRequest request) {
         List<Contents> contentsList = contentsRepository.findAll(request.offset, request.limit);
 
         List<ContentsDto> result = contentsList.stream()
                 .map(c -> new ContentsDto(c.getId(), c.getMember().getId(), c.getTitle(), c.getDescription(), c.getUrl()))
                 .collect(Collectors.toList());
 
-        return result;
+        return Response.success(result);
     }
 
 

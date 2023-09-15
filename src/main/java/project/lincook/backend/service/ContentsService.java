@@ -3,6 +3,8 @@ package project.lincook.backend.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import project.lincook.backend.common.exception.ErrorCode;
+import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.entity.*;
 import project.lincook.backend.repository.ContentsRepository;
 import project.lincook.backend.repository.DetailContentRepository;
@@ -36,14 +38,13 @@ public class ContentsService {
         contentsRepository.save(contents);
 
         return contents.getId();
-
     }
 
     private void validateDuplicateContents(String url) {
         List<Contents> contentsList = contentsRepository.findByUrl(url);
 
         if (!contentsList.isEmpty()) {
-            throw new IllegalStateException("이미 등록된 컨텐츠 입니다.");
+            throw new LincookAppException(ErrorCode.DUPLICATED_CONTENTS_URL, String.format("url :", url));
         }
     }
 
