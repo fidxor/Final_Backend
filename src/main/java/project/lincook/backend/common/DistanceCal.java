@@ -3,6 +3,8 @@ package project.lincook.backend.common;
 public class DistanceCal {
 
     public static double distance(double myLat, double myLong, double martLat, double martLong) {
+
+        // github actions test code
         double theta = myLong - martLong;
         double dist = Math.sin(deg2rad(myLat)) * Math.sin(deg2rad(martLat)) + Math.cos(deg2rad(myLat)) * Math.cos(deg2rad(martLat)) * Math.cos(deg2rad(theta));
 
