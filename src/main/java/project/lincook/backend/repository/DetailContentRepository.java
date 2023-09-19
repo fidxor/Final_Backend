@@ -29,4 +29,13 @@ public class DetailContentRepository {
                 .setParameter("contentsId", contentsId)
                 .getResultList();
     }
+
+    public List<DetailContent> findByUrl(String url) {
+        return em.createQuery("select d from DetailContent  d" +
+                        " join fetch d.detailContentProducts dc" +
+                        " join fetch dc.product p" +
+                        " where d.contents.url = :url", DetailContent.class)
+                .setParameter("url", url)
+                .getResultList();
+    }
 }
