@@ -29,6 +29,10 @@ public class ContentsService {
         // 멤버엔티티 조회
         Member member = memberRepository.findOne(memberId);
 
+        if (member == null) {
+            throw new LincookAppException(ErrorCode.NON_EXISTENT_MEMBER, String.format("memberId :", memberId));
+        }
+
         // 등록된 영상인지 확인.
         validateDuplicateContents(url);
         // 컨텐츠 생성
