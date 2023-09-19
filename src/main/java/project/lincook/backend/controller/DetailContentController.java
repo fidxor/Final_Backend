@@ -30,10 +30,38 @@ public class DetailContentController {
     private final ProductRepository productRepository;
     private final MartRepository martRepository;
 
+    /**
+     * contentsID 로 contents 정보를 전달한다.
+     * @param request
+     * @return
+     */
     @GetMapping("/detail-content")
     public Response detailContentResult(@RequestBody DetailContentRequest request) {
         List<DetailContent> detailContentList = detailContentRepository.findByContentsId(request.contents_id);
 
+        return makeDtoData(request.latitude, request.longitude, detailContentList);
+    }
+
+    /**
+     * url 을 가지고 contents 정보를 전달한다.
+     * @param request
+     * @return
+     */
+    @GetMapping("url-detail-contents")
+    public Response detailContentsByUrl(@RequestBody DetailContentRequest request) {
+        List<DetailContent> detailContentList = detailContentRepository.findByUrl(request.contents_url);
+
+        return makeDtoData(request.latitude, request.longitude, detailContentList);
+    }
+
+    /**
+     * Entity정보로 Dto를 만든다.
+     * @param latitude
+     * @param longitude
+     * @param detailContentList
+     * @return
+     */
+    private Response makeDtoData(double latitude, double longitude, List<DetailContent> detailContentList) {
         List<DetailContentCollect> collect = detailContentList.stream()
                 .map(d -> new DetailContentCollect(d))
                 .collect(Collectors.toList());
@@ -61,7 +89,7 @@ public class DetailContentController {
                 Mart mart = martRepository.findOne(martId);
 
                 // 위도 경도 값으로 현재 나의 위치와 마트위치의 거리 계산
-                double kilometer = DistanceCal.distance(request.latitude, request.longitude, mart.getLatitude(), mart.getLongitude());
+                double kilometer = DistanceCal.distance(latitude, longitude, mart.getLatitude(), mart.getLongitude());
 
                 // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다햣
                 if (kilometer < 6.0) {
@@ -84,6 +112,7 @@ public class DetailContentController {
     @Data
     static class DetailContentRequest {
         private Long contents_id;
+        public String contents_url; // "" 비어있는 스트링값일수 있음.
         private double latitude;
         private double longitude;
     }
