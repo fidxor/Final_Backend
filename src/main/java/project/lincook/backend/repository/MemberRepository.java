@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import project.lincook.backend.entity.Member;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -21,8 +22,12 @@ public class MemberRepository {
         return em.find(Member.class, id);
     }
 
-    public Member findByUserEmail(String email) {
-        return em.find(Member.class, email);
+    public List<Member> findByUserEmail(String email) {
+        //return em.find(Member.class, email);
+
+        return em.createQuery("select m from Member m where m.email = :email")
+                .setParameter("email", email)
+                .getResultList();
     }
 
     public static boolean isEmpty(Object obj) {
