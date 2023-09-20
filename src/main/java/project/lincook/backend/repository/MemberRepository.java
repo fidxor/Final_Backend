@@ -16,7 +16,20 @@ public class MemberRepository {
         em.persist(member);
     }
 
+
     public Member findOne(Long id) {
         return em.find(Member.class, id);
+    }
+
+    public Member findByUserEmail(String email) {
+        return em.find(Member.class, email);
+    }
+
+    public static boolean isEmpty(Object obj) {
+        // null 이라면
+        if (obj == null)
+            return false;
+
+        return true;
     }
 }
