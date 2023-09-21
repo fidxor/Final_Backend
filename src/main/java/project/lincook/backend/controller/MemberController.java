@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import project.lincook.backend.common.exception.ErrorCode;
+import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.MemberDTO;
 import project.lincook.backend.dto.Response;
 import project.lincook.backend.entity.Gender;
@@ -66,12 +68,7 @@ public class MemberController {
 
 		} catch (Exception e) {
 
-// TODO : 에러 메세지 처리
-//			Response responseDTO = Response.builder()
-//					.error(e.getMessage())
-//					.build();
-//
-			return null;
+			throw new LincookAppException(ErrorCode.FAILED_SIGNUP_MEMBER, String.format("productId :", request.email));
 		}
 	}
 
@@ -90,19 +87,9 @@ public class MemberController {
 					.build();
 
 			return ResponseEntity.ok().body(responseMemberDTO);
+		} else {
+			throw new LincookAppException(ErrorCode.NON_EXISTENT_MEMBER, String.format("productId :", request.email));
 		}
-
-// TODO : 에러 메세지 처리
-//		} else {
-//			Response responseDTO = Response.builder()
-//					.error("login failed")
-//					.build();
-//			return ResponseEntity
-////					.badRequest().
-////					body(responseDTO);
-//		}
-
-		return null;
 	}
 	@Data
 	static class SignupRequest {

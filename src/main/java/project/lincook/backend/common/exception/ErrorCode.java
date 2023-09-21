@@ -10,8 +10,9 @@ public enum ErrorCode {
 
     DUPLICATED_CONTENTS_URL(HttpStatus.CONFLICT, "Contents url is duplicated."),
     DUPLICATED_BASKET_PRODUCT(HttpStatus.CONFLICT, "BasketProduct is duplicated."),
-    NOT_INCLUDE_BASKET_PRODUCT(HttpStatus.CONFLICT, "This product is not included in your basket.");
-
+    NOT_INCLUDE_BASKET_PRODUCT(HttpStatus.CONFLICT, "This product is not included in your basket."),
+    NON_EXISTENT_MEMBER(HttpStatus.CONFLICT, "This member does not exist."),
+    FAILED_SIGNUP_MEMBER(HttpStatus.CONFLICT, "Failed signup member");
 
     private HttpStatus status;
     private String message;
