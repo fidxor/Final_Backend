@@ -30,7 +30,7 @@ public class ContentsController {
      * @return
      */
     @GetMapping("/main")
-    public Response findContents(@RequestBody findContentsRequest request) {
+    public Response findContents(findContentsRequest request) {
         List<Contents> contentsList = contentsRepository.findAll(request.offset, request.limit);
 
         List<ContentsDto> result = contentsList.stream()
