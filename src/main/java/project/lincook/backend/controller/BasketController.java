@@ -33,7 +33,7 @@ public class BasketController {
      * @return
      */
     @GetMapping("/basket-info")
-    public Response findBaskets(@RequestBody findBasketRequest request) {
+    public Response findBaskets(findBasketRequest request) {
         List<Basket> baskets = basketRepository.findAllByMemberID(request.memberId);
 
         List<findBasketCollect> collect = baskets.stream()
