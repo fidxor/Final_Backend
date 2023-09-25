@@ -76,6 +76,7 @@ public class DetailContentController {
             // 식재료 code 번호로 같은 code의 Product 정보를 가져온다.
             int code = detailContentDto.getProductDto().getCode();
 
+            // db에 저장돼어있는 상품의 코드와 같은 상품의 리스트를 전부 가져온다.
             List<Product> products = productRepository.findByCode(code);
 
             List<MartDto> martDtoList = new ArrayList<>();
@@ -96,15 +97,14 @@ public class DetailContentController {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
                     martDtoList.add(martDto);
                 }
-
-                DetailContentDto.ResponseDetailContent responseDetailContent = new DetailContentDto.ResponseDetailContent(productDto, martDtoList);
-
-                // 마트 거리별로 오름차순으로 정렬한다.
-                responseDetailContent.getMartDtoList().sort(new DistanceCollectionSort.DistanceCollectionSortByMartDto());
-
-                responseDetailContentList.add(responseDetailContent);
-
             }
+
+            DetailContentDto.ResponseDetailContent responseDetailContent = new DetailContentDto.ResponseDetailContent(detailContentDto.getProductDto(), martDtoList);
+
+            // 마트 거리별로 오름차순으로 정렬한다.
+            responseDetailContent.getMartDtoList().sort(new DistanceCollectionSort.DistanceCollectionSortByMartDto());
+
+            responseDetailContentList.add(responseDetailContent);
         }
         return Response.success(new DetailContentDto(contentsDto, responseDetailContentList));
     }
