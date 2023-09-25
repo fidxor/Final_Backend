@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import project.lincook.backend.common.DistanceCal;
 import project.lincook.backend.common.DistanceCollectionSort;
+import project.lincook.backend.common.exception.ErrorCode;
+import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.*;
 import project.lincook.backend.entity.Contents;
 import project.lincook.backend.entity.DetailContent;
@@ -39,6 +41,10 @@ public class DetailContentController {
     public Response detailContentResult(DetailContentRequest request) {
         List<DetailContent> detailContentList = detailContentRepository.findByContentsId(request.contents_id);
 
+        if (detailContentList.isEmpty()) {
+            throw new LincookAppException(ErrorCode.NON_EXISTENT_CONTENTS, String.format("id :", request.contents_id));
+        }
+
         return makeDtoData(request.latitude, request.longitude, detailContentList);
     }
 
@@ -50,6 +56,10 @@ public class DetailContentController {
     @GetMapping("url-detail-contents")
     public Response detailContentsByUrl(DetailContentRequest request) {
         List<DetailContent> detailContentList = detailContentRepository.findByUrl(request.contents_url);
+
+        if (detailContentList.isEmpty()) {
+            throw new LincookAppException(ErrorCode.NON_EXISTENT_CONTENTS, String.format("id :", request.contents_id));
+        }
 
         return makeDtoData(request.latitude, request.longitude, detailContentList);
     }

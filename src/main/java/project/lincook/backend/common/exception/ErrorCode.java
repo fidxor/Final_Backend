@@ -12,7 +12,8 @@ public enum ErrorCode {
     DUPLICATED_BASKET_PRODUCT(HttpStatus.CONFLICT, "BasketProduct is duplicated."),
     NOT_INCLUDE_BASKET_PRODUCT(HttpStatus.CONFLICT, "This product is not included in your basket."),
     NON_EXISTENT_MEMBER(HttpStatus.CONFLICT, "This member does not exist."),
-    FAILED_SIGNUP_MEMBER(HttpStatus.CONFLICT, "Failed signup member");
+    FAILED_SIGNUP_MEMBER(HttpStatus.CONFLICT, "Failed signup member"),
+    NON_EXISTENT_CONTENTS(HttpStatus.CONFLICT, "This contents does not exist.");
 
 
     private HttpStatus status;
