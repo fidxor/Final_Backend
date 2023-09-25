@@ -36,7 +36,7 @@ public class DetailContentController {
      * @return
      */
     @GetMapping("/detail-content")
-    public Response detailContentResult(@RequestBody DetailContentRequest request) {
+    public Response detailContentResult(DetailContentRequest request) {
         List<DetailContent> detailContentList = detailContentRepository.findByContentsId(request.contents_id);
 
         return makeDtoData(request.latitude, request.longitude, detailContentList);
