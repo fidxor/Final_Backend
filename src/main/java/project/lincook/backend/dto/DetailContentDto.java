@@ -22,7 +22,7 @@ public class DetailContentDto<T> {
     @AllArgsConstructor
     public static class ResponseDetailContent {
         private ProductDto productDto;
-        private List<MartDto> martDtoList;
+        private List<ProductMartDto> martDtoList;
     }
 }
 
