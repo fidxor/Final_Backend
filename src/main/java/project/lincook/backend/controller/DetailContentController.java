@@ -38,7 +38,7 @@ public class DetailContentController {
      * @return
      */
     @GetMapping("/detail-content")
-    public Response detailContentResult(@RequestBody DetailContentRequest request) {
+    public Response detailContentResult(DetailContentRequest request) {
         List<DetailContent> detailContentList = detailContentRepository.findByContentsId(request.contents_id);
 
         if (detailContentList.isEmpty()) {
@@ -89,7 +89,8 @@ public class DetailContentController {
             // db에 저장돼어있는 상품의 코드와 같은 상품의 리스트를 전부 가져온다.
             List<Product> products = productRepository.findByCode(code);
 
-            List<MartDto> martDtoList = new ArrayList<>();
+            // detailcontent에 출력되는 마트 정보에는 해당마트에서 판매하는 상품의 가격과 id가 필요하다.
+            List<ProductMartDto> martDtoList = new ArrayList<>();
 
             for (Product product : products) {
 
@@ -105,14 +106,15 @@ public class DetailContentController {
                 // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다햣
                 if (kilometer < 6.0) {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
-                    martDtoList.add(martDto);
+                    ProductMartDto productMartDto = new ProductMartDto(product.getId(), product.getSale_price(), martDto);
+                    martDtoList.add(productMartDto);
                 }
             }
 
             DetailContentDto.ResponseDetailContent responseDetailContent = new DetailContentDto.ResponseDetailContent(detailContentDto.getProductDto(), martDtoList);
 
             // 마트 거리별로 오름차순으로 정렬한다.
-            responseDetailContent.getMartDtoList().sort(new DistanceCollectionSort.DistanceCollectionSortByMartDto());
+            responseDetailContent.getMartDtoList().sort(new DistanceCollectionSort.DistanceCollectionSortByProductMartDto());
 
             responseDetailContentList.add(responseDetailContent);
         }
