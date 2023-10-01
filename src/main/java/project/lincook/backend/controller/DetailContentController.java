@@ -49,7 +49,7 @@ public class DetailContentController {
     }
 
     /**
-     * url 을 가지고 contents 정보를 전달한다.
+     * url 을 가지고 contents 정보를 전달한다.longitude = 127.0315873 latitude = 37.63915
      * @param request
      * @return
      */
@@ -104,7 +104,7 @@ public class DetailContentController {
                 double kilometer = DistanceCal.distance(latitude, longitude, mart.getLatitude(), mart.getLongitude());
 
                 // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다
-                if (kilometer < 6.0) {
+                if (kilometer < 400.0) {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
                     ProductMartDto productMartDto = new ProductMartDto(product.getId(), product.getSale_price(), martDto);
                     martDtoList.add(productMartDto);
