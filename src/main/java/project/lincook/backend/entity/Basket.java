@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -33,6 +34,8 @@ public class Basket {
     @OneToMany(fetch = LAZY, mappedBy = "basket", cascade = CascadeType.ALL)
     private Set<BasketDetailContent> basketDetailContents = new HashSet<>();
 
+    private LocalDateTime regDate;
+
     public void addBasketProduct(BasketProduct basketProduct) {
         basketProducts.add(basketProduct);
         basketProduct.setBasket(this);
@@ -46,5 +49,21 @@ public class Basket {
     public void addBasketDetailContent(BasketDetailContent basketDetailContent) {
         basketDetailContents.add(basketDetailContent);
         basketDetailContent.setBasket(this);
+    }
+
+    /**
+     * Set을 List로 변환해서 contents를 리턴한다.
+     * @return
+     */
+    public Contents getContentsOfList() {
+        return List.copyOf(this.getBasketDetailContents()).get(0).getContents();
+    }
+
+    public Product getProductOfList() {
+        return List.copyOf(this.getBasketProducts()).get(0).getProduct();
+    }
+
+    public Mart getMartOfList() {
+        return List.copyOf(this.getBasketMarts()).get(0).getMart();
     }
 }

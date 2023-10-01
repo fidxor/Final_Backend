@@ -3,6 +3,7 @@ package project.lincook.backend.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -20,7 +21,9 @@ public class Member {
     private Long id;
 
     private String name;
+
     private Gender gender;  // Enum : M, W
+
     private String address;
     private double latitude;
     private double longitude;
@@ -30,4 +33,6 @@ public class Member {
     private String password;
     private String role;
     private String authProvider;
+
+    private LocalDateTime joinDate;
 }
