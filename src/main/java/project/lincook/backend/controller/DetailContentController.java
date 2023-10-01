@@ -103,7 +103,7 @@ public class DetailContentController {
                 // 위도 경도 값으로 현재 나의 위치와 마트위치의 거리 계산
                 double kilometer = DistanceCal.distance(latitude, longitude, mart.getLatitude(), mart.getLongitude());
 
-                // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다햣
+                // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다
                 if (kilometer < 6.0) {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
                     ProductMartDto productMartDto = new ProductMartDto(product.getId(), product.getSale_price(), martDto);

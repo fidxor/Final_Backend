@@ -165,9 +165,9 @@ public class BasketController {
         private BasketProductDto basketProductDto;
 
         public findBasketCollect(Basket basket, double latitude, double longitude) {
-            Contents contents = List.copyOf(basket.getBasketDetailContents()).get(0).getContents();
-            Mart mart = List.copyOf(basket.getBasketMarts()).get(0).getMart();
-            Product product = List.copyOf(basket.getBasketProducts()).get(0).getProduct();
+            Contents contents = basket.getContentsOfList();
+            Mart mart = basket.getMartOfList();
+            Product product = basket.getProductOfList();
 
             this.contentsDto = new ContentsDto(contents.getId(), contents.getMember().getId(),
                     contents.getTitle(), contents.getDescription(), contents.getUrl());

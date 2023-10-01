@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
@@ -25,12 +28,15 @@ public class Contents {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    private LocalDateTime createDate;
+
     public static Contents createContents(String title, String description, String url, Member member) {
         Contents contents = new Contents();
         contents.setTitle(title);
         contents.setDescription(description);
         contents.setUrl(url);
         contents.setMember(member);
+        contents.setCreateDate(LocalDateTime.now());
 
         return contents;
     }

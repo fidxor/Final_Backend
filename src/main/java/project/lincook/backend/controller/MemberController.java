@@ -20,6 +20,8 @@ import project.lincook.backend.service.MemberService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDateTime;
+
 
 @Slf4j
 @RestController
@@ -50,6 +52,7 @@ public class MemberController {
 					.gender(request.gender)
 					.latitude(request.latitude)
 					.longitude(request.longitude)
+					.joinDate(LocalDateTime.now())
 					.build();
 //		서비스를 이용해 리포지터리에 유저 저장
 			Member registeredUser = memberService.create(user);

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import project.lincook.backend.entity.*;
 import project.lincook.backend.repository.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,6 +19,7 @@ public class BasketService {
     private final ContentsRepository contentsRepository;
     private final MartRepository martRepository;
     private final ProductRepository productRepository;
+    private final DeleteBasketRepository deleteBasketRepository;
 
     @Transactional
     public Long addBasket(Long memberId, Long contentsId, Long martId, Long productId) {
@@ -38,6 +40,7 @@ public class BasketService {
         basket.addBasketDetailContent(basketDetailContent);
         basket.addBasketMart(basketMart);
         basket.addBasketProduct(basketProduct);
+        basket.setRegDate(LocalDateTime.now());
 
         // db 저장
         basketRepository.save(basket);
@@ -49,7 +52,14 @@ public class BasketService {
     public Long deleteBasket(Long basketId) {
         Basket basket = basketRepository.findOne(basketId);
 
-        // TODO: Basket entity에서 id값으로 삭제를 하면 cascade 관계로 묶여있는 것들도 전부 삭제 되겠지??????돼야 한다.꼭......
+        // TODO : 삭제 하기 전에 deletebasket table에 삭제된 정보를 넣어준다.
+        //createDeleteBasket(Long memberId, Long basketId, Long contentId, Long productId, Long martId)
+        DeleteBasket deleteBasket = DeleteBasket.createDeleteBasket(basket.getMember().getId(), basket.getId(),
+                                                    basket.getContentsOfList().getId(), basket.getProductOfList().getId(),
+                                                    basket.getMartOfList().getId());
+
+        deleteBasketRepository.save(deleteBasket);
+
         basketRepository.remove(basket);
 
         return 0L;
