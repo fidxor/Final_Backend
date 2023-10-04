@@ -54,7 +54,7 @@ public class ContentsService {
 
     @Transactional
     // 상세 컨텐츠 정보 등록
-    public Long addDetailContent(Long contentsId, String name, Long productId) {
+    public Long addDetailContent(Long contentsId, Long productId) {
         // 엔티티 조회
         Contents contents = contentsRepository.findOne(contentsId);
         Product product = productRepository.findOne(productId);
@@ -63,7 +63,6 @@ public class ContentsService {
 
         DetailContentProduct dcp = DetailContentProduct.createDetailContentProduct(detailContent, product);
 
-        detailContent.setName(name);
         detailContent.addProduct(dcp);
         detailContent.setContents(contents);
 

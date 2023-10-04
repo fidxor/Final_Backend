@@ -55,10 +55,15 @@ public class ContentsController {
             throw new LincookAppException(ErrorCode.NOT_INCLUDE_PRODUCT, String.format("url : ", request.url));
         }
 
+        // url string이 비어있으면 에러
+        if (request.url.isEmpty()) {
+            throw new LincookAppException(ErrorCode.CONTENTS_EMPTY_URL, String.format("title : ", request.title));
+        }
+
         Long contentId = contentsService.addContents(request.member_id, request.title, request.description, request.url);
 
         for (Long id : request.ids) {
-            contentsService.addDetailContent(contentId, request.name, id);
+            contentsService.addDetailContent(contentId, id);
         }
 
         return new CreateContentsResponse(contentId);
@@ -81,7 +86,6 @@ public class ContentsController {
         private String description;
         private String url;
 
-        private String name;
         private List<Long> ids = new ArrayList<>();
     }
 
