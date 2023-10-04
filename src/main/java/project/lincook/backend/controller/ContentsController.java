@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import project.lincook.backend.common.exception.ErrorCode;
+import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.ContentsDto;
 import project.lincook.backend.dto.Response;
 import project.lincook.backend.entity.Contents;
@@ -48,6 +50,10 @@ public class ContentsController {
      */
     @PostMapping("/create-contents")
     public CreateContentsResponse createContents(@RequestBody CreateContentsRequest request) {
+        // 재료 상품 List가 비어있으면 에러.
+        if (request.ids.isEmpty()) {
+            throw new LincookAppException(ErrorCode.NOT_INCLUDE_PRODUCT, String.format("url : ", request.url));
+        }
 
         Long contentId = contentsService.addContents(request.member_id, request.title, request.description, request.url);
 

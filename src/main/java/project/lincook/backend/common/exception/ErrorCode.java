@@ -13,7 +13,8 @@ public enum ErrorCode {
     NOT_INCLUDE_BASKET_PRODUCT(HttpStatus.CONFLICT, "This product is not included in your basket."),
     NON_EXISTENT_MEMBER(HttpStatus.CONFLICT, "This member does not exist."),
     FAILED_SIGNUP_MEMBER(HttpStatus.CONFLICT, "Failed signup member"),
-    NON_EXISTENT_CONTENTS(HttpStatus.CONFLICT, "This contents does not exist.");
+    NON_EXISTENT_CONTENTS(HttpStatus.CONFLICT, "This contents does not exist."),
+    NOT_INCLUDE_PRODUCT(HttpStatus.CONFLICT, "The content you are trying to write does not include any products.");
 
     private HttpStatus status;
     private String message;
