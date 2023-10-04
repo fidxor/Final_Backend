@@ -14,7 +14,8 @@ public enum ErrorCode {
     NON_EXISTENT_MEMBER(HttpStatus.CONFLICT, "This member does not exist."),
     FAILED_SIGNUP_MEMBER(HttpStatus.CONFLICT, "Failed signup member"),
     NON_EXISTENT_CONTENTS(HttpStatus.CONFLICT, "This contents does not exist."),
-    NOT_INCLUDE_PRODUCT(HttpStatus.CONFLICT, "The content you are trying to write does not include any products.");
+    NOT_INCLUDE_PRODUCT(HttpStatus.CONFLICT, "The content you are trying to write does not include any products."),
+    CONTENTS_EMPTY_URL(HttpStatus.CONFLICT, "Url String is Empty");
 
     private HttpStatus status;
     private String message;

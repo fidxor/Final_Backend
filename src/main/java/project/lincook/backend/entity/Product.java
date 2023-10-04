@@ -24,7 +24,7 @@ public class Product {
     private String name;
     private String capacity;
 
-    private LocalDateTime add_date;
+    private String add_date;
 
     private int origin_price;
     private int sale_price;
