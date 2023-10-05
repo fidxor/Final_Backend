@@ -76,7 +76,7 @@ public class MemberController {
 	}
 
 	@PostMapping("/signin")
-	public ResponseEntity<?> authenticate(@RequestBody SigninRequest request) {
+	public Response authenticate(@RequestBody SigninRequest request) {
 		Member user = memberService.getByCredentials(
 				request.email,
 				request.password,
@@ -89,7 +89,7 @@ public class MemberController {
 					.token(token)
 					.build();
 
-			return ResponseEntity.ok().body(responseMemberDTO);
+			return Response.success(responseMemberDTO);
 		} else {
 			throw new LincookAppException(ErrorCode.NON_EXISTENT_MEMBER, String.format("productId :", request.email));
 		}
