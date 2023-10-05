@@ -17,7 +17,7 @@ public class Product {
 
     private int product_code;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "mart_id")
     private Mart mart;
 
