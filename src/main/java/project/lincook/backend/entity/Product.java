@@ -26,7 +26,7 @@ public class Product {
 
     private String add_date;
 
-    private int origin_price;
+    private int original_price;
     private int sale_price;
 
     private String img_url;
