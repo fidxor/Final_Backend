@@ -52,7 +52,7 @@ public class ContentsController {
     public Response createContents(@RequestBody CreateContentsRequest request) {
         // 재료 상품 List가 비어있으면 에러.
         if (request.ids.isEmpty()) {
-            throw new LincookAppException(ErrorCode.NOT_INCLUDE_PRODUCT, String.format("url : ", request.url));
+            throw new LincookAppException(ErrorCode.EMPTY_PRODUCT_LIST, String.format("url : ", request.url));
         }
 
         // url string이 비어있으면 에러

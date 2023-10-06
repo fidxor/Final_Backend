@@ -8,10 +8,7 @@ import project.lincook.backend.common.DistanceCollectionSort;
 import project.lincook.backend.common.exception.ErrorCode;
 import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.*;
-import project.lincook.backend.entity.Basket;
-import project.lincook.backend.entity.Contents;
-import project.lincook.backend.entity.Mart;
-import project.lincook.backend.entity.Product;
+import project.lincook.backend.entity.*;
 import project.lincook.backend.repository.BasketRepository;
 import project.lincook.backend.service.BasketService;
 
@@ -107,10 +104,15 @@ public class BasketController {
     public Response createBasket(@RequestBody CreateBasketRequest request) {
         // 장바구니에 포함되어있는 상품인지 검사.
         validateDuplicateBasket(request);
+
+
+        // TODO : member, contents, mart, product db에 존재하는 애들인지 검사.
         Long basketId = basketService.addBasket(request.memberId, request.contentsId, request.martId, request.productId);
 
         return Response.success(basketId);
     }
+
+
 
     /**
      * 해당상품이 db에 있는지 확인.
