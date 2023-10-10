@@ -106,7 +106,7 @@ public class DetailContentController {
                 if (kilometer < 400.0) {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
                     boolean isInBasket = isIncludeBasketProduct(memberId, contentsDto.getId(), martDto.getId(), product.getId());
-                    ProductMartDto productMartDto = new ProductMartDto(product.getId(), product.getSale_price(), martDto, isInBasket);
+                    ProductMartDto productMartDto = new ProductMartDto(product.getId(), product.getSale_price(), martDto, mart.getLatitude(), mart.getLongitude(), isInBasket);
                     martDtoList.add(productMartDto);
                 }
             }
