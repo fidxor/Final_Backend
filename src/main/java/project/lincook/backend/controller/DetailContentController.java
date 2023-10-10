@@ -11,10 +11,8 @@ import project.lincook.backend.common.DistanceCollectionSort;
 import project.lincook.backend.common.exception.ErrorCode;
 import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.*;
-import project.lincook.backend.entity.Contents;
-import project.lincook.backend.entity.DetailContent;
-import project.lincook.backend.entity.Mart;
-import project.lincook.backend.entity.Product;
+import project.lincook.backend.entity.*;
+import project.lincook.backend.repository.BasketRepository;
 import project.lincook.backend.repository.DetailContentRepository;
 import project.lincook.backend.repository.MartRepository;
 import project.lincook.backend.repository.ProductRepository;
@@ -31,6 +29,7 @@ public class DetailContentController {
     private final DetailContentRepository detailContentRepository;
     private final ProductRepository productRepository;
     private final MartRepository martRepository;
+    private final BasketRepository basketRepository;
 
     /**
      * contentsID 로 contents 정보를 전달한다.
@@ -45,7 +44,7 @@ public class DetailContentController {
             throw new LincookAppException(ErrorCode.NON_EXISTENT_CONTENTS, String.format("id :", request.contents_id));
         }
 
-        return makeDtoData(request.latitude, request.longitude, detailContentList);
+        return makeDtoData(request.memberId, request.latitude, request.longitude, detailContentList);
     }
 
     /**
@@ -61,7 +60,7 @@ public class DetailContentController {
             throw new LincookAppException(ErrorCode.NON_EXISTENT_CONTENTS, String.format("id :", request.contents_id));
         }
 
-        return makeDtoData(request.latitude, request.longitude, detailContentList);
+        return makeDtoData(request.memberId, request.latitude, request.longitude, detailContentList);
     }
 
     /**
@@ -71,7 +70,7 @@ public class DetailContentController {
      * @param detailContentList
      * @return
      */
-    private Response makeDtoData(double latitude, double longitude, List<DetailContent> detailContentList) {
+    private Response makeDtoData(Long memberId, double latitude, double longitude, List<DetailContent> detailContentList) {
         List<DetailContentCollect> collect = detailContentList.stream()
                 .map(d -> new DetailContentCollect(d))
                 .collect(Collectors.toList());
@@ -106,7 +105,8 @@ public class DetailContentController {
                 // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다
                 if (kilometer < 400.0) {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
-                    ProductMartDto productMartDto = new ProductMartDto(product.getId(), product.getSale_price(), martDto);
+                    boolean isInBasket = isIncludeBasketProduct(memberId, contentsDto.getId(), martDto.getId(), product.getId());
+                    ProductMartDto productMartDto = new ProductMartDto(product.getId(), product.getSale_price(), martDto, isInBasket);
                     martDtoList.add(productMartDto);
                 }
             }
@@ -121,8 +121,23 @@ public class DetailContentController {
         return Response.success(new DetailContentDto(contentsDto, responseDetailContentList));
     }
 
+    /**
+     * 해당 상품이 장바구니에 포함되어있는지 DB에서 확인한다.
+     * @param memberId
+     * @param contentsId
+     * @param martId
+     * @param productId
+     * @return
+     */
+    private boolean isIncludeBasketProduct(Long memberId, Long contentsId, Long martId, Long productId) {
+        List<Basket> baskets = basketRepository.findAllByProductID(memberId, contentsId, martId, productId);
+
+        return !baskets.isEmpty();
+    }
+
     @Data
     static class DetailContentRequest {
+        private Long memberId;
         private Long contents_id;
         public String contents_url; // "" 비어있는 스트링값일수 있음.
         private double latitude;

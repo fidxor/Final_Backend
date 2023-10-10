@@ -105,8 +105,6 @@ public class BasketController {
         // 장바구니에 포함되어있는 상품인지 검사.
         validateDuplicateBasket(request);
 
-
-        // TODO : member, contents, mart, product db에 존재하는 애들인지 검사.
         Long basketId = basketService.addBasket(request.memberId, request.contentsId, request.martId, request.productId);
 
         return Response.success(basketId);
