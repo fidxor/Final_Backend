@@ -1,5 +1,5 @@
 plugins {
-	id 'java-library'
+	id 'java'
 	id 'org.springframework.boot' version '2.7.15'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
@@ -34,9 +34,6 @@ dependencies {
 	// jjwt
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 
-	//logback
-	api 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'commons-io:commons-io:2.5'
 }
 
 tasks.named('test') {
