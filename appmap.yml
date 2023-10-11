@@ -1,0 +1,4 @@
+name: "backend"
+appmap_dir: "tmp/appmap"
+packages:
+- path: "project.lincook.backend"

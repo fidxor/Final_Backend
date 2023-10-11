@@ -1,0 +1,3 @@
+[
+  "select member0_.member_id as member_i1_8_, member0_.address as address2_8_, member0_.auth_provider as auth_pro3_8_, member0_.email as email4_8_, member0_.gender as gender5_8_, member0_.latitude as latitude6_8_, member0_.longitude as longitud7_8_, member0_.name as name8_8_, member0_.password as password9_8_, member0_.role as role10_8_ from member member0_ where member0_.email=?"
+]

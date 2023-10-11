@@ -1,0 +1,7 @@
+[
+  {
+    "route": "POST /auth/signin",
+    "parameters": "()",
+    "status": 200
+  }
+]

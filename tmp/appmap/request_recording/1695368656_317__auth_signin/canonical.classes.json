@@ -1,0 +1,10 @@
+[
+  "project/lincook/backend/controller/MemberController",
+  "project/lincook/backend/controller/MemberController$SigninRequest",
+  "project/lincook/backend/dto/MemberDTO",
+  "project/lincook/backend/dto/MemberDTO$MemberDTOBuilder",
+  "project/lincook/backend/entity/Gender",
+  "project/lincook/backend/repository/MemberRepository",
+  "project/lincook/backend/security/TokenProvider",
+  "project/lincook/backend/service/MemberService"
+]

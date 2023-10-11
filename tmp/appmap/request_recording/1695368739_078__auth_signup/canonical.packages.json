@@ -1,0 +1,7 @@
+[
+  "project/lincook/backend/controller",
+  "project/lincook/backend/dto",
+  "project/lincook/backend/entity",
+  "project/lincook/backend/repository",
+  "project/lincook/backend/service"
+]

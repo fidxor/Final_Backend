@@ -1,0 +1,11 @@
+[
+  "project/lincook/backend/controller/MemberController",
+  "project/lincook/backend/controller/MemberController$SignupRequest",
+  "project/lincook/backend/dto/MemberDTO",
+  "project/lincook/backend/dto/MemberDTO$MemberDTOBuilder",
+  "project/lincook/backend/dto/Response",
+  "project/lincook/backend/entity/Member",
+  "project/lincook/backend/entity/Member$MemberBuilder",
+  "project/lincook/backend/repository/MemberRepository",
+  "project/lincook/backend/service/MemberService"
+]

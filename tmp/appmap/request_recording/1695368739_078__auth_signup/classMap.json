@@ -1,0 +1,352 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "setName",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:112"
+                      },
+                      {
+                        "name": "setLatitude",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:112"
+                      },
+                      {
+                        "name": "setRole",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:112"
+                      },
+                      {
+                        "name": "setPassword",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:112"
+                      },
+                      {
+                        "name": "setLongitude",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:112"
+                      },
+                      {
+                        "name": "setEmail",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:112"
+                      },
+                      {
+                        "name": "setGender",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:112"
+                      },
+                      {
+                        "name": "setAddress",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:112"
+                      }
+                    ],
+                    "name": "MemberController$SignupRequest",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "registerUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/MemberController.java:39"
+                      }
+                    ],
+                    "name": "MemberController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "name",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      },
+                      {
+                        "name": "password",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      },
+                      {
+                        "name": "build",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      },
+                      {
+                        "name": "longitude",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      },
+                      {
+                        "name": "email",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      },
+                      {
+                        "name": "role",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      },
+                      {
+                        "name": "address",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      },
+                      {
+                        "name": "latitude",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      },
+                      {
+                        "name": "gender",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      }
+                    ],
+                    "name": "Member$MemberBuilder",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "builder",
+                        "type": "function",
+                        "static": true,
+                        "location": "project/lincook/backend/entity/Member.java:10"
+                      }
+                    ],
+                    "name": "Member",
+                    "type": "class"
+                  }
+                ],
+                "name": "entity",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "latitude",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      },
+                      {
+                        "name": "gender",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      },
+                      {
+                        "name": "name",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      },
+                      {
+                        "name": "longitude",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      },
+                      {
+                        "name": "email",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      },
+                      {
+                        "name": "build",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      },
+                      {
+                        "name": "address",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      },
+                      {
+                        "name": "password",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      },
+                      {
+                        "name": "role",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      }
+                    ],
+                    "name": "MemberDTO$MemberDTOBuilder",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "builder",
+                        "type": "function",
+                        "static": true,
+                        "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                      }
+                    ],
+                    "name": "MemberDTO",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "success",
+                        "type": "function",
+                        "static": true,
+                        "location": "project/lincook/backend/dto/Response.java:20"
+                      }
+                    ],
+                    "name": "Response",
+                    "type": "class"
+                  }
+                ],
+                "name": "dto",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "save",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/repository/MemberRepository.java:17"
+                      },
+                      {
+                        "name": "findByUserEmail",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/repository/MemberRepository.java:28"
+                      }
+                    ],
+                    "name": "MemberRepository",
+                    "type": "class"
+                  }
+                ],
+                "name": "repository",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:37"
+                      }
+                    ],
+                    "name": "JwtAuthenticationFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "security",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "create",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/MemberService.java:24"
+                      }
+                    ],
+                    "name": "MemberService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              }
+            ],
+            "name": "backend",
+            "type": "package"
+          }
+        ],
+        "name": "lincook",
+        "type": "package"
+      }
+    ],
+    "name": "project",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "POST /auth/signup"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select member0_.member_id as member_i1_8_, member0_.address as address2_8_, member0_.auth_provider as auth_pro3_8_, member0_.email as email4_8_, member0_.gender as gender5_8_, member0_.latitude as latitude6_8_, member0_.longitude as longitud7_8_, member0_.name as name8_8_, member0_.password as password9_8_, member0_.role as role10_8_ from member member0_ where member0_.email=?"
+      },
+      {
+        "type": "query",
+        "name": "select next_val as id_val from hibernate_sequence for update"
+      },
+      {
+        "type": "query",
+        "name": "update hibernate_sequence set next_val= ? where next_val=?"
+      },
+      {
+        "type": "query",
+        "name": "insert into member (address, auth_provider, email, gender, latitude, longitude, name, password, role, member_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1621 @@
+{
+  "events": [
+    {
+      "defined_class": "project.lincook.backend.security.JwtAuthenticationFilter",
+      "event": "call",
+      "id": 1,
+      "lineno": 37,
+      "method_id": "doFilterInternal",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 583717119,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@22cad0ff"
+        },
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse",
+          "kind": "req",
+          "name": "response",
+          "object_id": 653607038,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@26f5407e"
+        },
+        {
+          "class": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+          "kind": "req",
+          "name": "filterChain",
+          "object_id": 1677187780,
+          "value": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain@63f7dac4"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtAuthenticationFilter.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtAuthenticationFilter",
+        "object_id": 995760621,
+        "value": "project.lincook.backend.security.JwtAuthenticationFilter@3b5a19ed"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "220",
+          "postman-token": "92236aef-abb4-443e-bbe8-2bdaaec366e5",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.33.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/auth/signup",
+        "path_info": "/auth/signup",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 2,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController$SignupRequest",
+      "event": "call",
+      "id": 3,
+      "lineno": 112,
+      "method_id": "setEmail",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "email",
+          "object_id": 1897880828,
+          "value": "hello15@world.com"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+        "object_id": 785344063,
+        "value": "MemberController.SignupRequest(email=hello15@world.com, password=null, address=null, gender=null, name=null, role=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 4,
+      "parent_id": 3,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController$SignupRequest",
+      "event": "call",
+      "id": 5,
+      "lineno": 112,
+      "method_id": "setPassword",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "password",
+          "object_id": 860331892,
+          "value": "12345"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+        "object_id": 785344063,
+        "value": "MemberController.SignupRequest(email=hello15@world.com, password=12345, address=null, gender=null, name=null, role=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController$SignupRequest",
+      "event": "call",
+      "id": 7,
+      "lineno": 112,
+      "method_id": "setName",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "name",
+          "object_id": 1541830314,
+          "value": "bumki"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+        "object_id": 785344063,
+        "value": "MemberController.SignupRequest(email=hello15@world.com, password=12345, address=null, gender=null, name=bumki, role=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 8,
+      "parent_id": 7,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController$SignupRequest",
+      "event": "call",
+      "id": 9,
+      "lineno": 112,
+      "method_id": "setGender",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.entity.Gender",
+          "kind": "req",
+          "name": "gender",
+          "object_id": 23328460,
+          "value": "M"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+        "object_id": 785344063,
+        "value": "MemberController.SignupRequest(email=hello15@world.com, password=12345, address=null, gender=M, name=bumki, role=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 10,
+      "parent_id": 9,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController$SignupRequest",
+      "event": "call",
+      "id": 11,
+      "lineno": 112,
+      "method_id": "setRole",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "role",
+          "object_id": 1091262671,
+          "value": "ROLE_USER"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+        "object_id": 785344063,
+        "value": "MemberController.SignupRequest(email=hello15@world.com, password=12345, address=null, gender=M, name=bumki, role=ROLE_USER, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 12,
+      "parent_id": 11,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController$SignupRequest",
+      "event": "call",
+      "id": 13,
+      "lineno": 112,
+      "method_id": "setAddress",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "address",
+          "object_id": 1320731557,
+          "value": "승학로"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+        "object_id": 785344063,
+        "value": "MemberController.SignupRequest(email=hello15@world.com, password=12345, address=승학로, gender=M, name=bumki, role=ROLE_USER, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 14,
+      "parent_id": 13,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController$SignupRequest",
+      "event": "call",
+      "id": 15,
+      "lineno": 112,
+      "method_id": "setLatitude",
+      "parameters": [
+        {
+          "class": "java.lang.Double",
+          "kind": "req",
+          "name": "latitude",
+          "object_id": 637775870,
+          "value": "37.570892"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+        "object_id": 785344063,
+        "value": "MemberController.SignupRequest(email=hello15@world.com, password=12345, address=승학로, gender=M, name=bumki, role=ROLE_USER, latitude=37.570892, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 16,
+      "parent_id": 15,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController$SignupRequest",
+      "event": "call",
+      "id": 17,
+      "lineno": 112,
+      "method_id": "setLongitude",
+      "parameters": [
+        {
+          "class": "java.lang.Double",
+          "kind": "req",
+          "name": "longitude",
+          "object_id": 952690788,
+          "value": "12.23234"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+        "object_id": 785344063,
+        "value": "MemberController.SignupRequest(email=hello15@world.com, password=12345, address=승학로, gender=M, name=bumki, role=ROLE_USER, latitude=37.570892, longitude=12.23234)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 18,
+      "parent_id": 17,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.MemberController",
+      "event": "call",
+      "id": 19,
+      "lineno": 39,
+      "method_id": "registerUser",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.controller.MemberController$SignupRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 785344063,
+          "value": "MemberController.SignupRequest(email=hello15@world.com, password=12345, address=승학로, gender=M, name=bumki, role=ROLE_USER, latitude=37.570892, longitude=12.23234)"
+        }
+      ],
+      "path": "project/lincook/backend/controller/MemberController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.MemberController",
+        "object_id": 1242514050,
+        "value": "project.lincook.backend.controller.MemberController@4a0f4282"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member",
+      "event": "call",
+      "id": 20,
+      "lineno": 10,
+      "method_id": "builder",
+      "path": "project/lincook/backend/entity/Member.java",
+      "static": true,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 21,
+      "parent_id": 20,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=null, gender=null, address=null, latitude=0.0, longitude=0.0, email=null, password=null, role=null, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 22,
+      "lineno": 10,
+      "method_id": "email",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "email",
+          "object_id": 1897880828,
+          "value": "hello15@world.com"
+        }
+      ],
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=null, gender=null, address=null, latitude=0.0, longitude=0.0, email=hello15@world.com, password=null, role=null, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.00140622,
+      "event": "return",
+      "id": 23,
+      "parent_id": 22,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=null, gender=null, address=null, latitude=0.0, longitude=0.0, email=hello15@world.com, password=null, role=null, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 24,
+      "lineno": 10,
+      "method_id": "password",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "password",
+          "object_id": 1333454062,
+          "value": "$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW"
+        }
+      ],
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=null, gender=null, address=null, latitude=0.0, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 25,
+      "parent_id": 24,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=null, gender=null, address=null, latitude=0.0, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 26,
+      "lineno": 10,
+      "method_id": "name",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "name",
+          "object_id": 1541830314,
+          "value": "bumki"
+        }
+      ],
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=null, address=null, latitude=0.0, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 27,
+      "parent_id": 26,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=null, address=null, latitude=0.0, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 28,
+      "lineno": 10,
+      "method_id": "address",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "address",
+          "object_id": 1320731557,
+          "value": "승학로"
+        }
+      ],
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=null, address=승학로, latitude=0.0, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 29,
+      "parent_id": 28,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=null, address=승학로, latitude=0.0, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 30,
+      "lineno": 10,
+      "method_id": "gender",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.entity.Gender",
+          "kind": "req",
+          "name": "gender",
+          "object_id": 23328460,
+          "value": "M"
+        }
+      ],
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=0.0, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.0001117,
+      "event": "return",
+      "id": 31,
+      "parent_id": 30,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=0.0, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 32,
+      "lineno": 10,
+      "method_id": "latitude",
+      "parameters": [
+        {
+          "class": "java.lang.Double",
+          "kind": "req",
+          "name": "latitude",
+          "object_id": 704386542,
+          "value": "37.570892"
+        }
+      ],
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=37.570892, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 33,
+      "parent_id": 32,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=37.570892, longitude=0.0, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 34,
+      "lineno": 10,
+      "method_id": "longitude",
+      "parameters": [
+        {
+          "class": "java.lang.Double",
+          "kind": "req",
+          "name": "longitude",
+          "object_id": 1006612045,
+          "value": "12.23234"
+        }
+      ],
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=37.570892, longitude=12.23234, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 35,
+      "parent_id": 34,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=37.570892, longitude=12.23234, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=null, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 36,
+      "lineno": 10,
+      "method_id": "role",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "role",
+          "object_id": 1091262671,
+          "value": "ROLE_USER"
+        }
+      ],
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=37.570892, longitude=12.23234, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=ROLE_USER, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 37,
+      "parent_id": 36,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=37.570892, longitude=12.23234, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=ROLE_USER, authProvider=null)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.entity.Member$MemberBuilder",
+      "event": "call",
+      "id": 38,
+      "lineno": 10,
+      "method_id": "build",
+      "path": "project/lincook/backend/entity/Member.java",
+      "receiver": {
+        "class": "project.lincook.backend.entity.Member$MemberBuilder",
+        "object_id": 597557906,
+        "value": "Member.MemberBuilder(id=null, name=bumki, gender=M, address=승학로, latitude=37.570892, longitude=12.23234, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, role=ROLE_USER, authProvider=null)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.00009871,
+      "event": "return",
+      "id": 39,
+      "parent_id": 38,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member",
+        "object_id": 462428154,
+        "value": "project.lincook.backend.entity.Member@1b9017fa"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.service.MemberService",
+      "event": "call",
+      "id": 40,
+      "lineno": 24,
+      "method_id": "create",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.entity.Member",
+          "kind": "req",
+          "name": "memberEntity",
+          "object_id": 462428154,
+          "value": "project.lincook.backend.entity.Member@1b9017fa"
+        }
+      ],
+      "path": "project/lincook/backend/service/MemberService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.MemberService",
+        "object_id": 1546706639,
+        "value": "project.lincook.backend.service.MemberService@5c30decf"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.repository.MemberRepository",
+      "event": "call",
+      "id": 41,
+      "lineno": 28,
+      "method_id": "findByUserEmail",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "email",
+          "object_id": 1897880828,
+          "value": "hello15@world.com"
+        }
+      ],
+      "path": "project/lincook/backend/repository/MemberRepository.java",
+      "receiver": {
+        "class": "project.lincook.backend.repository.MemberRepository",
+        "object_id": 1413952420,
+        "value": "project.lincook.backend.repository.MemberRepository@544733a4"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "event": "call",
+      "id": 42,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select member0_.member_id as member_i1_8_, member0_.address as address2_8_, member0_.auth_provider as auth_pro3_8_, member0_.email as email4_8_, member0_.gender as gender5_8_, member0_.latitude as latitude6_8_, member0_.longitude as longitud7_8_, member0_.name as name8_8_, member0_.password as password9_8_, member0_.role as role10_8_ from member member0_ where member0_.email=?"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 43,
+      "parent_id": 42,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.00148355,
+      "event": "return",
+      "id": 44,
+      "parent_id": 41,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 389038188,
+        "value": "[]"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.repository.MemberRepository",
+      "event": "call",
+      "id": 45,
+      "lineno": 17,
+      "method_id": "save",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.entity.Member",
+          "kind": "req",
+          "name": "member",
+          "object_id": 462428154,
+          "value": "project.lincook.backend.entity.Member@1b9017fa"
+        }
+      ],
+      "path": "project/lincook/backend/repository/MemberRepository.java",
+      "receiver": {
+        "class": "project.lincook.backend.repository.MemberRepository",
+        "object_id": 1413952420,
+        "value": "project.lincook.backend.repository.MemberRepository@544733a4"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "event": "call",
+      "id": 46,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select next_val as id_val from hibernate_sequence for update"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.000112,
+      "event": "return",
+      "id": 47,
+      "parent_id": 46,
+      "thread_id": 55
+    },
+    {
+      "event": "call",
+      "id": 48,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "update hibernate_sequence set next_val= ? where next_val=?"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 49,
+      "parent_id": 48,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.00854305,
+      "event": "return",
+      "id": 50,
+      "parent_id": 45,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.0100266,
+      "event": "return",
+      "id": 51,
+      "parent_id": 40,
+      "return_value": {
+        "class": "project.lincook.backend.entity.Member",
+        "object_id": 462428154,
+        "value": "project.lincook.backend.entity.Member@1b9017fa"
+      },
+      "thread_id": 55
+    },
+    {
+      "event": "call",
+      "id": 52,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "insert into member (address, auth_provider, email, gender, latitude, longitude, name, password, role, member_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 53,
+      "parent_id": 52,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO",
+      "event": "call",
+      "id": 54,
+      "lineno": 12,
+      "method_id": "builder",
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "static": true,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.00009068,
+      "event": "return",
+      "id": 55,
+      "parent_id": 54,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=null, password=null, name=null, role=null, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 56,
+      "lineno": 12,
+      "method_id": "email",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "email",
+          "object_id": 1897880828,
+          "value": "hello15@world.com"
+        }
+      ],
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=null, name=null, role=null, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 57,
+      "parent_id": 56,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=null, name=null, role=null, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 58,
+      "lineno": 12,
+      "method_id": "password",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "password",
+          "object_id": 1333454062,
+          "value": "$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW"
+        }
+      ],
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=null, role=null, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 59,
+      "parent_id": 58,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=null, role=null, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 60,
+      "lineno": 12,
+      "method_id": "name",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "name",
+          "object_id": 1541830314,
+          "value": "bumki"
+        }
+      ],
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=null, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 61,
+      "parent_id": 60,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=null, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 62,
+      "lineno": 12,
+      "method_id": "role",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "role",
+          "object_id": 1091262671,
+          "value": "ROLE_USER"
+        }
+      ],
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 63,
+      "parent_id": 62,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=null, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 64,
+      "lineno": 12,
+      "method_id": "gender",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.entity.Gender",
+          "kind": "req",
+          "name": "gender",
+          "object_id": 23328460,
+          "value": "M"
+        }
+      ],
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 65,
+      "parent_id": 64,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=null, latitude=0.0, longitude=0.0)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 66,
+      "lineno": 12,
+      "method_id": "address",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "address",
+          "object_id": 1320731557,
+          "value": "승학로"
+        }
+      ],
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=0.0, longitude=0.0)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 67,
+      "parent_id": 66,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=0.0, longitude=0.0)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 68,
+      "lineno": 12,
+      "method_id": "longitude",
+      "parameters": [
+        {
+          "class": "java.lang.Double",
+          "kind": "req",
+          "name": "longitude",
+          "object_id": 446417726,
+          "value": "12.23234"
+        }
+      ],
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=0.0, longitude=12.23234)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 69,
+      "parent_id": 68,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=0.0, longitude=12.23234)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 70,
+      "lineno": 12,
+      "method_id": "latitude",
+      "parameters": [
+        {
+          "class": "java.lang.Double",
+          "kind": "req",
+          "name": "latitude",
+          "object_id": 1669762986,
+          "value": "37.570892"
+        }
+      ],
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=37.570892, longitude=12.23234)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 71,
+      "parent_id": 70,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=37.570892, longitude=12.23234)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+      "event": "call",
+      "id": 72,
+      "lineno": 12,
+      "method_id": "build",
+      "path": "project/lincook/backend/dto/MemberDTO.java",
+      "receiver": {
+        "class": "project.lincook.backend.dto.MemberDTO$MemberDTOBuilder",
+        "object_id": 505967913,
+        "value": "MemberDTO.MemberDTOBuilder(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=37.570892, longitude=12.23234)"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 73,
+      "parent_id": 72,
+      "return_value": {
+        "class": "project.lincook.backend.dto.MemberDTO",
+        "object_id": 1630363668,
+        "value": "MemberDTO(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=37.570892, longitude=12.23234)"
+      },
+      "thread_id": 55
+    },
+    {
+      "defined_class": "project.lincook.backend.dto.Response",
+      "event": "call",
+      "id": 74,
+      "lineno": 20,
+      "method_id": "success",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.dto.MemberDTO",
+          "kind": "req",
+          "name": "result",
+          "object_id": 1630363668,
+          "value": "MemberDTO(token=null, email=hello15@world.com, password=$2a$10$PjBPZTwBIIVGHlOaw0osHOh/EYyEYGZYglK3AAYcWwXiLPuoV9AbW, name=bumki, role=ROLE_USER, gender=M, address=승학로, latitude=37.570892, longitude=12.23234)"
+        }
+      ],
+      "path": "project/lincook/backend/dto/Response.java",
+      "static": true,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 75,
+      "parent_id": 74,
+      "return_value": {
+        "class": "project.lincook.backend.dto.Response",
+        "object_id": 2021080750,
+        "value": "project.lincook.backend.dto.Response@78773eae"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.02606963,
+      "event": "return",
+      "id": 76,
+      "parent_id": 19,
+      "return_value": {
+        "class": "project.lincook.backend.dto.Response",
+        "object_id": 2021080750,
+        "value": "project.lincook.backend.dto.Response@78773eae"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.02762858,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "X-Frame-Options": "SAMEORIGIN",
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "keep-alive",
+          "Pragma": "no-cache",
+          "Expires": "0",
+          "X-XSS-Protection": "1; mode=block",
+          "Date": "Fri, 22 Sep 2023 07:45:39 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 77,
+      "parent_id": 2,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.02773282,
+      "event": "return",
+      "id": 78,
+      "parent_id": 1,
+      "thread_id": 55
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /auth/signup (200) - 16:45:39.078",
+    "app": "backend",
+    "language": {
+      "name": "java",
+      "version": "17.0.8+7-LTS",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "request"
+    },
+    "recording": {},
+    "framework": {}
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "setName",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:112"
+                        },
+                        {
+                          "name": "setLatitude",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:112"
+                        },
+                        {
+                          "name": "setRole",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:112"
+                        },
+                        {
+                          "name": "setPassword",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:112"
+                        },
+                        {
+                          "name": "setLongitude",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:112"
+                        },
+                        {
+                          "name": "setEmail",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:112"
+                        },
+                        {
+                          "name": "setGender",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:112"
+                        },
+                        {
+                          "name": "setAddress",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:112"
+                        }
+                      ],
+                      "name": "MemberController$SignupRequest",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "registerUser",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/MemberController.java:39"
+                        }
+                      ],
+                      "name": "MemberController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "name",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        },
+                        {
+                          "name": "password",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        },
+                        {
+                          "name": "build",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        },
+                        {
+                          "name": "longitude",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        },
+                        {
+                          "name": "email",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        },
+                        {
+                          "name": "role",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        },
+                        {
+                          "name": "address",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        },
+                        {
+                          "name": "latitude",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        },
+                        {
+                          "name": "gender",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        }
+                      ],
+                      "name": "Member$MemberBuilder",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "builder",
+                          "type": "function",
+                          "static": true,
+                          "location": "project/lincook/backend/entity/Member.java:10"
+                        }
+                      ],
+                      "name": "Member",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "entity",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "latitude",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        },
+                        {
+                          "name": "gender",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        },
+                        {
+                          "name": "name",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        },
+                        {
+                          "name": "longitude",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        },
+                        {
+                          "name": "email",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        },
+                        {
+                          "name": "build",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        },
+                        {
+                          "name": "address",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        },
+                        {
+                          "name": "password",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        },
+                        {
+                          "name": "role",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        }
+                      ],
+                      "name": "MemberDTO$MemberDTOBuilder",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "builder",
+                          "type": "function",
+                          "static": true,
+                          "location": "project/lincook/backend/dto/MemberDTO.java:12"
+                        }
+                      ],
+                      "name": "MemberDTO",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "success",
+                          "type": "function",
+                          "static": true,
+                          "location": "project/lincook/backend/dto/Response.java:20"
+                        }
+                      ],
+                      "name": "Response",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "dto",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "save",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/repository/MemberRepository.java:17"
+                        },
+                        {
+                          "name": "findByUserEmail",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/repository/MemberRepository.java:28"
+                        }
+                      ],
+                      "name": "MemberRepository",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "repository",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "doFilterInternal",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:37"
+                        }
+                      ],
+                      "name": "JwtAuthenticationFilter",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "security",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "create",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/MemberService.java:24"
+                        }
+                      ],
+                      "name": "MemberService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                }
+              ],
+              "name": "backend",
+              "type": "package"
+            }
+          ],
+          "name": "lincook",
+          "type": "package"
+        }
+      ],
+      "name": "project",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /auth/signup"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select member0_.member_id as member_i1_8_, member0_.address as address2_8_, member0_.auth_provider as auth_pro3_8_, member0_.email as email4_8_, member0_.gender as gender5_8_, member0_.latitude as latitude6_8_, member0_.longitude as longitud7_8_, member0_.name as name8_8_, member0_.password as password9_8_, member0_.role as role10_8_ from member member0_ where member0_.email=?"
+        },
+        {
+          "type": "query",
+          "name": "select next_val as id_val from hibernate_sequence for update"
+        },
+        {
+          "type": "query",
+          "name": "update hibernate_sequence set next_val= ? where next_val=?"
+        },
+        {
+          "type": "query",
+          "name": "insert into member (address, auth_provider, email, gender, latitude, longitude, name, password, role, member_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        }
+      ]
+    }
+  ]
+}
