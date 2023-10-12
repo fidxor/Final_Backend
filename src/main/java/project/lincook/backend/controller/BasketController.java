@@ -8,10 +8,7 @@ import project.lincook.backend.common.DistanceCollectionSort;
 import project.lincook.backend.common.exception.ErrorCode;
 import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.*;
-import project.lincook.backend.entity.Basket;
-import project.lincook.backend.entity.Contents;
-import project.lincook.backend.entity.Mart;
-import project.lincook.backend.entity.Product;
+import project.lincook.backend.entity.*;
 import project.lincook.backend.repository.BasketRepository;
 import project.lincook.backend.service.BasketService;
 
@@ -33,7 +30,7 @@ public class BasketController {
      * @return
      */
     @GetMapping("/basket-info")
-    public Response findBaskets(@RequestBody findBasketRequest request) {
+    public Response findBaskets(findBasketRequest request) {
         List<Basket> baskets = basketRepository.findAllByMemberID(request.memberId);
 
         List<findBasketCollect> collect = baskets.stream()
@@ -89,13 +86,13 @@ public class BasketController {
      * @param request
      * @return
      */
-    @DeleteMapping("/delete-basket")
-    public Long deleteBasket(@RequestBody DeleteBasketRequest request) {
+    @PostMapping("/delete-basket")
+    public Response deleteBasket(@RequestBody DeleteBasketRequest request) {
         // 지우려는 상품이 db에 저장되어 있는 상품인지 확인한다.
         validateIncludeBasket(request.memberId, request.basketId);
 
         Long basketId = basketService.deleteBasket(request.basketId);
-        return basketId;
+        return Response.success(basketId);
     }
 
     /**
@@ -104,13 +101,16 @@ public class BasketController {
      * @return
      */
     @PostMapping("/create-basket")
-    public Long createBasket(@RequestBody CreateBasketRequest request) {
+    public Response createBasket(@RequestBody CreateBasketRequest request) {
         // 장바구니에 포함되어있는 상품인지 검사.
         validateDuplicateBasket(request);
+
         Long basketId = basketService.addBasket(request.memberId, request.contentsId, request.martId, request.productId);
 
-        return basketId;
+        return Response.success(basketId);
     }
+
+
 
     /**
      * 해당상품이 db에 있는지 확인.
@@ -165,9 +165,9 @@ public class BasketController {
         private BasketProductDto basketProductDto;
 
         public findBasketCollect(Basket basket, double latitude, double longitude) {
-            Contents contents = List.copyOf(basket.getBasketDetailContents()).get(0).getContents();
-            Mart mart = List.copyOf(basket.getBasketMarts()).get(0).getMart();
-            Product product = List.copyOf(basket.getBasketProducts()).get(0).getProduct();
+            Contents contents = basket.getContentsOfList();
+            Mart mart = basket.getMartOfList();
+            Product product = basket.getProductOfList();
 
             this.contentsDto = new ContentsDto(contents.getId(), contents.getMember().getId(),
                     contents.getTitle(), contents.getDescription(), contents.getUrl());

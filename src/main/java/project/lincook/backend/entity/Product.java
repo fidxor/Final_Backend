@@ -17,16 +17,16 @@ public class Product {
 
     private int product_code;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "mart_id")
     private Mart mart;
 
     private String name;
     private String capacity;
 
-    private LocalDateTime add_date;
+    private String add_date;
 
-    private int origin_price;
+    private int original_price;
     private int sale_price;
 
     private String img_url;

@@ -22,7 +22,6 @@ public class DetailContent {
     @JoinColumn(name = "contents_id")
     private Contents contents;
 
-    private String name;
     @OneToMany(mappedBy = "detailContent", cascade = CascadeType.ALL)
     private List<DetailContentProduct> detailContentProducts = new ArrayList<>();
 
@@ -35,7 +34,6 @@ public class DetailContent {
         DetailContent detailContent = new DetailContent();
 
         detailContent.setContents(contents);
-        detailContent.setName(name);
 
         for (DetailContentProduct dcp : detailContentProducts) {
             detailContent.addProduct(dcp);
