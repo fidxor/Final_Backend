@@ -1,15 +1,14 @@
-package project.lincook.backend.jwtSecurity.controller;
+package project.lincook.backend.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.message.Message;
 import org.springframework.http.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import project.lincook.backend.dto.Response;
-import project.lincook.backend.jwtSecurity.dto.AuthDto;
-import project.lincook.backend.jwtSecurity.exception.ErrorMessage;
-import project.lincook.backend.jwtSecurity.service.AuthService;
-import project.lincook.backend.jwtSecurity.service.UserService;
+import project.lincook.backend.dto.AuthDto;
+import project.lincook.backend.common.exception.ErrorMessage;
+import project.lincook.backend.service.AuthService;
+import project.lincook.backend.service.MemberService;
 import javax.validation.Valid;
 
 @RestController
@@ -18,7 +17,7 @@ import javax.validation.Valid;
 public class AuthApiController {
 
 	private final AuthService authService;
-	private final UserService userService;
+	private final MemberService memberService;
 	private final BCryptPasswordEncoder encoder;
 
 	private final long COOKIE_EXPIRATION = 7776000; // 90일
@@ -37,7 +36,7 @@ public class AuthApiController {
 		String encodedPassword = encoder.encode(signupDto.getPassword());
 		AuthDto.SignupDto newSignupDto = AuthDto.SignupDto.encodePassword(signupDto, encodedPassword);
 
-		userService.registerUser(newSignupDto);
+		memberService.registerUser(newSignupDto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 

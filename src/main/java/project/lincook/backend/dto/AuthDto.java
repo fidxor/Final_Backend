@@ -1,4 +1,4 @@
-package project.lincook.backend.jwtSecurity.dto;
+package project.lincook.backend.dto;
 
 import lombok.AccessLevel;
 import lombok.Builder;

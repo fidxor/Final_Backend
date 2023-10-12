@@ -1,4 +1,4 @@
-package project.lincook.backend.jwtSecurity.exception;
+package project.lincook.backend.common.exception;
 
 public final class ErrorMessage {
 	public static final String ENTITY_IS_NOT_NULL = "Entity는 null이 될 수 없습니다";

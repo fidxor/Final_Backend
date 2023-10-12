@@ -3,6 +3,7 @@ package project.lincook.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
+import project.lincook.backend.dto.AuthDto;
 import project.lincook.backend.entity.Member;
 import project.lincook.backend.repository.MemberRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -49,5 +50,16 @@ public class MemberService {
 			return originalUser.get(0);
 		}
 		return null;
+	}
+
+	@Transactional
+	public void registerUser(AuthDto.SignupDto signupDto) {
+
+		if (!memberRepository.findByUserEmail(signupDto.getEmail()).isEmpty()) {
+			throw new RuntimeException("이미 가입되어 있는 유저입니다");
+		}
+
+		Member member = Member.registerUser(signupDto);
+		memberRepository.save(member);
 	}
 }

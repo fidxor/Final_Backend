@@ -1,68 +1,57 @@
 package project.lincook.backend.security;
 
-
+import io.jsonwebtoken.IncorrectClaimException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AbstractAuthenticationToken;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import javax.servlet.ServletException;
-
 
 @Slf4j
-@Component
+@RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-	@Autowired
-	private TokenProvider tokenProvider;
+	private final JwtTokenProvider jwtTokenProvider;
 
 	@Override
 	protected void doFilterInternal(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			FilterChain filterChain) throws ServletException, IOException {
-		try {
-			String token = parseBearerToken(request);
-			log.warn("Filter is running....");
-//				위조된 토큰은 예외처리
-			if (token != null && !token.equalsIgnoreCase("null")) {
-				String userID = tokenProvider.validateAndGetUserId(token);
-				log.info("Authenticated user ID : " + userID);
-//				인증완료 , 사용자 ID로 인증객체 만들고, 권한부여하지않음
-				AbstractAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-						userID,
-						null,
-						AuthorityUtils.NO_AUTHORITIES);
 
-				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-				SecurityContext sercurityContext = SecurityContextHolder.createEmptyContext();
-				sercurityContext.setAuthentication(authentication);
-				SecurityContextHolder.setContext(sercurityContext);
+		// Access Token 추출
+		String accessToken = resolveToken(request);
+
+		try { // 정상 토큰인지 검사
+			if (accessToken != null && jwtTokenProvider.validateAccessToken(accessToken)) {
+				Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
+				SecurityContextHolder.getContext().setAuthentication(authentication);
+				log.debug("Save authentication in SecurityContextHolder.");
 			}
-		} catch (Exception ex) {
-			logger.error("Could not set user authentication in security context", ex);
+		} catch (IncorrectClaimException e) { // 잘못된 토큰일 경우
+			SecurityContextHolder.clearContext();
+			log.debug("Invalid JWT token.");
+			response.sendError(403);
+		} catch (UsernameNotFoundException e) { // 회원을 찾을 수 없을 경우
+			SecurityContextHolder.clearContext();
+			log.debug("Can't find user.");
+			response.sendError(403);
 		}
-		filterChain.doFilter(request, response);
 
+		filterChain.doFilter(request, response);
 	}
 
-	private String parseBearerToken(HttpServletRequest request){
-//		Http 요청의 헤더를 파싱해 Bearer 토큰을 리턴한다.
-		String bearerToken = request.getHeader("Authorization");
-
-		if(StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer")){
+	// HTTP Request 헤더로부터 토큰 추출
+	public String resolveToken(HttpServletRequest httpServletRequest) {
+		String bearerToken = httpServletRequest.getHeader("Authorization");
+		if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
 			return bearerToken.substring(7);
 		}
 		return null;

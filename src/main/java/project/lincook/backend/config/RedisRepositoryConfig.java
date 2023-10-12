@@ -1,4 +1,4 @@
-package project.lincook.backend.jwtSecurity.configuration;
+package project.lincook.backend.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;

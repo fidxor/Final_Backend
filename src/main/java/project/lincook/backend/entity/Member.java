@@ -1,6 +1,7 @@
 package project.lincook.backend.entity;
 
 import lombok.*;
+import project.lincook.backend.dto.AuthDto;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,24 +17,29 @@ import java.util.List;
 @Setter
 public class Member {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private Long id;
-
+    private String email; // Principal
+    private String password; // Credential
     private String name;
-
-    @Enumerated(EnumType.STRING)
     private Gender gender;  // Enum : M, W
-
     private String address;
     private double latitude;
     private double longitude;
 
-    @Column(nullable = false)
-    private String email;
-    private String password;
-    private String role;
-    private String authProvider;
+    @Enumerated(EnumType.STRING)
+    private Role role; // 사용자 권한
 
-    private LocalDateTime joinDate;
+    // == 생성 메서드 == //
+    public static Member registerUser(AuthDto.SignupDto signupDto) {
+        Member member = new Member();
+
+        member.email = signupDto.getEmail();
+        member.password = signupDto.getPassword();
+        member.role = Role.USER;
+
+        return member;
+    }
 }

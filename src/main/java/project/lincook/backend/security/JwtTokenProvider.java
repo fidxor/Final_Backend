@@ -1,7 +1,7 @@
-package project.lincook.backend.jwtSecurity.security;
+package project.lincook.backend.security;
 
-import  project.lincook.backend.jwtSecurity.dto.AuthDto;
-import  project.lincook.backend.jwtSecurity.service.RedisService;
+import project.lincook.backend.dto.AuthDto;
+import project.lincook.backend.service.RedisService;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -22,7 +22,7 @@ import java.util.Date;
 @Transactional(readOnly = true)
 public class JwtTokenProvider implements InitializingBean {
 
-	private final UserDetailsServiceImpl userDetailsService;
+	private final MemberDetailsServiceImpl userDetailsService;
 	private final RedisService redisService;
 
 	private static final String AUTHORITIES_KEY = "role";
@@ -36,7 +36,7 @@ public class JwtTokenProvider implements InitializingBean {
 	private final Long refreshTokenValidityInMilliseconds;
 
 	public JwtTokenProvider(
-			UserDetailsServiceImpl userDetailsService,
+			MemberDetailsServiceImpl userDetailsService,
 			RedisService redisService,
 			@Value("${spring.jwt.secret}") String secretKey,
 			@Value("${spring.jwt.refresh-token-validity-in-seconds}") Long accessTokenValidityInMilliseconds,
@@ -99,7 +99,7 @@ public class JwtTokenProvider implements InitializingBean {
 
 	public Authentication getAuthentication(String token) {
 		String email = getClaims(token).get(EMAIL_KEY).toString();
-		UserDetailsImpl userDetailsImpl = userDetailsService.loadUserByUsername(email);
+		MemberDetailsImpl userDetailsImpl = userDetailsService.loadUserByUsername(email);
 		return new UsernamePasswordAuthenticationToken(userDetailsImpl, "", userDetailsImpl.getAuthorities());
 	}
 

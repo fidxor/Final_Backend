@@ -1,4 +1,4 @@
-package project.lincook.backend.jwtSecurity.member;
+package project.lincook.backend.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

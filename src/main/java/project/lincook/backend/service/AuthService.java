@@ -1,8 +1,8 @@
-package project.lincook.backend.jwtSecurity.service;
+package project.lincook.backend.service;
 
-import project.lincook.backend.jwtSecurity.dto.AuthDto;
-import project.lincook.backend.jwtSecurity.repository.UserRepository;
-import project.lincook.backend.jwtSecurity.security.JwtTokenProvider;
+import project.lincook.backend.dto.AuthDto;
+import project.lincook.backend.repository.MemberRepository;
+import project.lincook.backend.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +25,7 @@ public class AuthService {
 	private final JwtTokenProvider jwtTokenProvider;
 	private final AuthenticationManagerBuilder authenticationManagerBuilder;
 	private final RedisService redisService;
-	private final UserRepository userRepository;
+	private final MemberRepository memberRepository;
 
 	private final String SERVER = "Server";
 

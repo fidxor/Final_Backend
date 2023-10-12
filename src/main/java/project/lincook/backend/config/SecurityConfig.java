@@ -1,4 +1,4 @@
-package project.lincook.backend.jwtSecurity.configuration;
+package project.lincook.backend.config;
 
 
 import lombok.RequiredArgsConstructor;
@@ -15,10 +15,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import project.lincook.backend.jwtSecurity.security.JwtAccessDeniedHandler;
-import project.lincook.backend.jwtSecurity.security.JwtAuthenticationEntryPoint;
-import project.lincook.backend.jwtSecurity.security.JwtAuthenticationFilter;
-import project.lincook.backend.jwtSecurity.security.JwtTokenProvider;
+import project.lincook.backend.security.JwtAccessDeniedHandler;
+import project.lincook.backend.security.JwtAuthenticationEntryPoint;
+import project.lincook.backend.security.JwtAuthenticationFilter;
+import project.lincook.backend.security.JwtTokenProvider;
 
 @Configuration
 @EnableWebSecurity // Spring Security 설정 클래스
