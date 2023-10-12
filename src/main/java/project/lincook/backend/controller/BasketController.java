@@ -86,7 +86,7 @@ public class BasketController {
      * @param request
      * @return
      */
-    @DeleteMapping("/delete-basket")
+    @PostMapping("/delete-basket")
     public Response deleteBasket(@RequestBody DeleteBasketRequest request) {
         // 지우려는 상품이 db에 저장되어 있는 상품인지 확인한다.
         validateIncludeBasket(request.memberId, request.basketId);
