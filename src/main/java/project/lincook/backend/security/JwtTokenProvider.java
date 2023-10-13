@@ -109,7 +109,7 @@ public class JwtTokenProvider implements InitializingBean {
 
 
 	// == 토큰 검증 == //
-
+//todo validateRefreshToken(requestRefreshToken) null point exception 문제 해결 필요
 	public boolean validateRefreshToken(String refreshToken){
 		try {
 			if (redisService.getValues(refreshToken).equals("delete")) { // 회원 탈퇴했을 경우
