@@ -24,7 +24,10 @@ public class Member {
     private String email; // Principal
     private String password; // Credential
     private String name;
-    private Gender gender;  // Enum : M, W
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;  // Enum : male, female
+
     private String address;
     private double latitude;
     private double longitude;
@@ -38,6 +41,10 @@ public class Member {
 
         member.email = signupDto.getEmail();
         member.password = signupDto.getPassword();
+        member.name = signupDto.getName();
+        member.gender = signupDto.getGender();
+        member.latitude = signupDto.getLatitude();
+        member.longitude = signupDto.getLongitude();
         member.role = Role.USER;
 
         return member;
