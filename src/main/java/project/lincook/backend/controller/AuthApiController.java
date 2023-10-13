@@ -25,20 +25,19 @@ public class AuthApiController {
 
 	// 회원가입
 	@PostMapping("/signup")
-	public ResponseEntity<Response<Object>> signup(@RequestBody @Valid AuthDto.SignupDto signupDto) {
+	public Response signup(@RequestBody @Valid AuthDto.SignupDto signupDto) {
 		try {
 			if(signupDto == null || signupDto.getPassword() == null){
 				throw new LincookAppException(ErrorCode.INVALID_PASSWORD, "wrong password");
 			}
 		}catch (Exception e) {
-			final Response<Object> responseDTO = new Response<>(e.getMessage(), null);
-			return ResponseEntity.badRequest().body(responseDTO);
+			return Response.error(e.getMessage());
 		}
 		String encodedPassword = encoder.encode(signupDto.getPassword());
 		AuthDto.SignupDto newSignupDto = AuthDto.SignupDto.encodePassword(signupDto, encodedPassword);
 
-		memberService.registerUser(newSignupDto);
-		return new ResponseEntity<>(HttpStatus.OK);
+		Long memberId = memberService.registerUser(newSignupDto);
+		return Response.success(memberId);
 	}
 
 	// 로그인 -> 토큰 발급

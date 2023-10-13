@@ -53,7 +53,7 @@ public class MemberService {
 	}
 
 	@Transactional
-	public void registerUser(AuthDto.SignupDto signupDto) {
+	public Long registerUser(AuthDto.SignupDto signupDto) {
 
 		if (!memberRepository.findByUserEmail(signupDto.getEmail()).isEmpty()) {
 			throw new RuntimeException("이미 가입되어 있는 유저입니다");
@@ -61,5 +61,7 @@ public class MemberService {
 
 		Member member = Member.registerUser(signupDto);
 		memberRepository.save(member);
+
+		return member.getId();
 	}
 }
