@@ -16,8 +16,8 @@ public class MemberDTO {
 	private double latitude; //위도
 	private double longitude; //경도
 
-	public MemberDTO(Long membeId, String email, double latitude, double longitude) {
-		this.memberId = membeId;
+	public MemberDTO(Long memberId, String email, double latitude, double longitude) {
+		this.memberId = memberId;
 		this.email = email;
 		this.latitude = latitude;
 		this.longitude = longitude;
