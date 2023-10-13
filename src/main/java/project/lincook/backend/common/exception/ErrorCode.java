@@ -17,7 +17,8 @@ public enum ErrorCode {
     EMPTY_PRODUCT_LIST(HttpStatus.CONFLICT, "The content you are trying to write does not include any products."), // 컨텐츠 생성때 상품리스트가 비어있음.
     CONTENTS_EMPTY_URL(HttpStatus.CONFLICT, "Url String is Empty"), // 컨텐츠 생성때 URL 값이 비어있음
     NON_EXISTENT_MART(HttpStatus.CONFLICT, "This mart does not exist."),    // 존재하지 않는 마트정보
-    NON_EXISTENT_PRODUCT(HttpStatus.CONFLICT, "This product does not exist.");  // 존재하지 않는 상품정보
+    NON_EXISTENT_PRODUCT(HttpStatus.CONFLICT, "This product does not exist."),  // 존재하지 않는 상품정보
+    INVALID_PASSWORD(HttpStatus.CONFLICT, "wrong password.");   // 패스워드가 틀립니다.
 
 
     private HttpStatus status;

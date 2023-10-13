@@ -4,9 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import project.lincook.backend.common.exception.ErrorCode;
+import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.Response;
 import project.lincook.backend.dto.AuthDto;
-import project.lincook.backend.common.exception.ErrorMessage;
 import project.lincook.backend.service.AuthService;
 import project.lincook.backend.service.MemberService;
 import javax.validation.Valid;
@@ -27,7 +28,7 @@ public class AuthApiController {
 	public ResponseEntity<Response<Object>> signup(@RequestBody @Valid AuthDto.SignupDto signupDto) {
 		try {
 			if(signupDto == null || signupDto.getPassword() == null){
-				throw new RuntimeException(ErrorMessage.INVALID_PASSWORD);
+				throw new LincookAppException(ErrorCode.INVALID_PASSWORD, "wrong password");
 			}
 		}catch (Exception e) {
 			final Response<Object> responseDTO = new Response<>(e.getMessage(), null);
