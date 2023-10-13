@@ -1,0 +1,334 @@
+{
+  "events": [
+    {
+      "defined_class": "project.lincook.backend.security.JwtAuthenticationFilter",
+      "event": "call",
+      "id": 1,
+      "lineno": 30,
+      "method_id": "doFilterInternal",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 612359671,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@247fddf7"
+        },
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse",
+          "kind": "req",
+          "name": "response",
+          "object_id": 541085088,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@20404da0"
+        },
+        {
+          "class": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+          "kind": "req",
+          "name": "filterChain",
+          "object_id": 1698879436,
+          "value": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain@6542d7cc"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtAuthenticationFilter.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtAuthenticationFilter",
+        "object_id": 839690620,
+        "value": "project.lincook.backend.security.JwtAuthenticationFilter@320ca97c"
+      },
+      "static": false,
+      "thread_id": 52
+    },
+    {
+      "defined_class": "project.lincook.backend.security.JwtAuthenticationFilter",
+      "event": "call",
+      "id": 2,
+      "lineno": 53,
+      "method_id": "resolveToken",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "httpServletRequest",
+          "object_id": 612359671,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@247fddf7"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtAuthenticationFilter.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtAuthenticationFilter",
+        "object_id": 839690620,
+        "value": "project.lincook.backend.security.JwtAuthenticationFilter@320ca97c"
+      },
+      "static": false,
+      "thread_id": 52
+    },
+    {
+      "elapsed": 0.00009999,
+      "event": "return",
+      "id": 3,
+      "parent_id": 2,
+      "return_value": {
+        "class": "java.lang.String",
+        "object_id": 237495058,
+        "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MSIsImlzcyI6IkxpbmNvb2siLCJhdWQiOiJVU0VSIiwiYXV0aCI6IlVTRVIiLCJpYXQiOjE2OTUzNjE1NzEsImV4cCI6MTY5NTQ0Nzk3MX0.PJhw_mnLVkX8D_o8Mi0rVadVXhhbPwnIi01SBnn-C9dPVhR3biK7pTrcVVBMNwn-CeLgRMzTtpuV20PhPYJ7Pw"
+      },
+      "thread_id": 52
+    },
+    {
+      "defined_class": "project.lincook.backend.security.JwtTokenProvider",
+      "event": "call",
+      "id": 4,
+      "lineno": 142,
+      "method_id": "validateAccessToken",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "accessToken",
+          "object_id": 237495058,
+          "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MSIsImlzcyI6IkxpbmNvb2siLCJhdWQiOiJVU0VSIiwiYXV0aCI6IlVTRVIiLCJpYXQiOjE2OTUzNjE1NzEsImV4cCI6MTY5NTQ0Nzk3MX0.PJhw_mnLVkX8D_o8Mi0rVadVXhhbPwnIi01SBnn-C9dPVhR3biK7pTrcVVBMNwn-CeLgRMzTtpuV20PhPYJ7Pw"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtTokenProvider.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtTokenProvider",
+        "object_id": 1230121951,
+        "value": "project.lincook.backend.security.JwtTokenProvider@49522bdf"
+      },
+      "static": false,
+      "thread_id": 52
+    },
+    {
+      "defined_class": "project.lincook.backend.service.RedisService",
+      "event": "call",
+      "id": 5,
+      "lineno": 29,
+      "method_id": "getValues",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "key",
+          "object_id": 237495058,
+          "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MSIsImlzcyI6IkxpbmNvb2siLCJhdWQiOiJVU0VSIiwiYXV0aCI6IlVTRVIiLCJpYXQiOjE2OTUzNjE1NzEsImV4cCI6MTY5NTQ0Nzk3MX0.PJhw_mnLVkX8D_o8Mi0rVadVXhhbPwnIi01SBnn-C9dPVhR3biK7pTrcVVBMNwn-CeLgRMzTtpuV20PhPYJ7Pw"
+        }
+      ],
+      "path": "project/lincook/backend/service/RedisService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.RedisService",
+        "object_id": 1208371802,
+        "value": "project.lincook.backend.service.RedisService@48064a5a"
+      },
+      "static": false,
+      "thread_id": 52
+    },
+    {
+      "elapsed": 0.00023214,
+      "event": "return",
+      "exceptions": [
+        {
+          "class": "org.springframework.data.redis.RedisConnectionFailureException",
+          "lineno": 1689,
+          "message": "Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to redis-cluster.gvacws.ng.0001.apn2.cache.amazonaws.com:6379/<unresolved>:6379",
+          "object_id": 1424824132,
+          "path": "LettuceConnectionFactory.java"
+        },
+        {
+          "class": "io.lettuce.core.RedisConnectionException",
+          "lineno": 78,
+          "message": "Unable to connect to redis-cluster.gvacws.ng.0001.apn2.cache.amazonaws.com:6379/<unresolved>:6379",
+          "object_id": 1986166068,
+          "path": "RedisConnectionException.java"
+        },
+        {
+          "class": "java.net.UnknownHostException",
+          "lineno": -2,
+          "message": "알려진 호스트가 없습니다 (redis-cluster.gvacws.ng.0001.apn2.cache.amazonaws.com:6379)",
+          "object_id": 91039875,
+          "path": "Inet6AddressImpl.java"
+        }
+      ],
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 52
+    },
+    {
+      "elapsed": 0.00023214,
+      "event": "return",
+      "id": 7,
+      "parent_id": 4,
+      "return_value": {
+        "class": "java.lang.Boolean",
+        "object_id": 1619000593,
+        "value": "false"
+      },
+      "thread_id": 52
+    },
+    {
+      "elapsed": 0.00532959,
+      "event": "return",
+      "exceptions": [
+        {
+          "class": "org.springframework.transaction.UnexpectedRollbackException",
+          "lineno": 752,
+          "message": "Transaction silently rolled back because it has been marked as rollback-only",
+          "object_id": 878928975,
+          "path": "AbstractPlatformTransactionManager.java"
+        }
+      ],
+      "id": 8,
+      "parent_id": 1,
+      "thread_id": 52
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MSIsImlzcyI6IkxpbmNvb2siLCJhdWQiOiJVU0VSIiwiYXV0aCI6IlVTRVIiLCJpYXQiOjE2OTUzNjE1NzEsImV4cCI6MTY5NTQ0Nzk3MX0.PJhw_mnLVkX8D_o8Mi0rVadVXhhbPwnIi01SBnn-C9dPVhR3biK7pTrcVVBMNwn-CeLgRMzTtpuV20PhPYJ7Pw",
+          "content-length": "66",
+          "cookie": "refresh-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcxNTMxMTgsInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.SscAq2ehZVTTjryx0VGxPn9qBAh47uoIK93wXeW2NRLh3YoR6Moh-qTVAAtACq64y8zEe0qe7-FvsHwSvV7PAQ",
+          "postman-token": "ca07f5e2-d425-4119-b5c2-2345ad33f1a1",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.33.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/error",
+        "path_info": "/error",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 9,
+      "thread_id": 52
+    },
+    {
+      "elapsed": 0.00013507,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "X-Frame-Options": "SAMEORIGIN",
+          "Transfer-Encoding": "chunked",
+          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "close",
+          "Vary": "Origin",
+          "Pragma": "no-cache",
+          "Expires": "0",
+          "X-XSS-Protection": "1; mode=block",
+          "Date": "Fri, 13 Oct 2023 06:52:38 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 500
+      },
+      "id": 10,
+      "parent_id": 9,
+      "thread_id": 52
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /api/auth/login (500) - 15:52:38.368",
+    "app": "backend",
+    "language": {
+      "name": "java",
+      "version": "17.0.8+7-LTS",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "framework": {}
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "resolveToken",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:53"
+                        },
+                        {
+                          "name": "doFilterInternal",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+                        }
+                      ],
+                      "name": "JwtAuthenticationFilter",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "validateAccessToken",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtTokenProvider.java:142"
+                        }
+                      ],
+                      "name": "JwtTokenProvider",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "security",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getValues",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/RedisService.java:29"
+                        }
+                      ],
+                      "name": "RedisService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                }
+              ],
+              "name": "backend",
+              "type": "package"
+            }
+          ],
+          "name": "lincook",
+          "type": "package"
+        }
+      ],
+      "name": "project",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /error"
+        }
+      ]
+    }
+  ]
+}

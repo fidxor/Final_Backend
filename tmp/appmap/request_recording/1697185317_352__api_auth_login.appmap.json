@@ -1,0 +1,1109 @@
+{
+  "events": [
+    {
+      "defined_class": "project.lincook.backend.security.JwtAuthenticationFilter",
+      "event": "call",
+      "id": 1,
+      "lineno": 30,
+      "method_id": "doFilterInternal",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 149581812,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@8ea6ff4"
+        },
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse",
+          "kind": "req",
+          "name": "response",
+          "object_id": 1269010383,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@4ba38fcf"
+        },
+        {
+          "class": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+          "kind": "req",
+          "name": "filterChain",
+          "object_id": 958947945,
+          "value": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain@39286269"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtAuthenticationFilter.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtAuthenticationFilter",
+        "object_id": 2012283502,
+        "value": "project.lincook.backend.security.JwtAuthenticationFilter@77f1026e"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.JwtAuthenticationFilter",
+      "event": "call",
+      "id": 2,
+      "lineno": 53,
+      "method_id": "resolveToken",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "httpServletRequest",
+          "object_id": 149581812,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@8ea6ff4"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtAuthenticationFilter.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtAuthenticationFilter",
+        "object_id": 2012283502,
+        "value": "project.lincook.backend.security.JwtAuthenticationFilter@77f1026e"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00009993,
+      "event": "return",
+      "id": 3,
+      "parent_id": 2,
+      "return_value": {
+        "class": "java.lang.String",
+        "object_id": 864804081,
+        "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MSIsImlzcyI6IkxpbmNvb2siLCJhdWQiOiJVU0VSIiwiYXV0aCI6IlVTRVIiLCJpYXQiOjE2OTUzNjE1NzEsImV4cCI6MTY5NTQ0Nzk3MX0.PJhw_mnLVkX8D_o8Mi0rVadVXhhbPwnIi01SBnn-C9dPVhR3biK7pTrcVVBMNwn-CeLgRMzTtpuV20PhPYJ7Pw"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.JwtTokenProvider",
+      "event": "call",
+      "id": 4,
+      "lineno": 142,
+      "method_id": "validateAccessToken",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "accessToken",
+          "object_id": 864804081,
+          "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MSIsImlzcyI6IkxpbmNvb2siLCJhdWQiOiJVU0VSIiwiYXV0aCI6IlVTRVIiLCJpYXQiOjE2OTUzNjE1NzEsImV4cCI6MTY5NTQ0Nzk3MX0.PJhw_mnLVkX8D_o8Mi0rVadVXhhbPwnIi01SBnn-C9dPVhR3biK7pTrcVVBMNwn-CeLgRMzTtpuV20PhPYJ7Pw"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtTokenProvider.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtTokenProvider",
+        "object_id": 1781227569,
+        "value": "project.lincook.backend.security.JwtTokenProvider@6a2b6031"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.service.RedisService",
+      "event": "call",
+      "id": 5,
+      "lineno": 29,
+      "method_id": "getValues",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "key",
+          "object_id": 864804081,
+          "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MSIsImlzcyI6IkxpbmNvb2siLCJhdWQiOiJVU0VSIiwiYXV0aCI6IlVTRVIiLCJpYXQiOjE2OTUzNjE1NzEsImV4cCI6MTY5NTQ0Nzk3MX0.PJhw_mnLVkX8D_o8Mi0rVadVXhhbPwnIi01SBnn-C9dPVhR3biK7pTrcVVBMNwn-CeLgRMzTtpuV20PhPYJ7Pw"
+        }
+      ],
+      "path": "project/lincook/backend/service/RedisService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.RedisService",
+        "object_id": 1015676376,
+        "value": "project.lincook.backend.service.RedisService@3c89fdd8"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00009999,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00020102,
+      "event": "return",
+      "id": 7,
+      "parent_id": 4,
+      "return_value": {
+        "class": "java.lang.Boolean",
+        "object_id": 1686073279,
+        "value": "false"
+      },
+      "thread_id": 54
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MSIsImlzcyI6IkxpbmNvb2siLCJhdWQiOiJVU0VSIiwiYXV0aCI6IlVTRVIiLCJpYXQiOjE2OTUzNjE1NzEsImV4cCI6MTY5NTQ0Nzk3MX0.PJhw_mnLVkX8D_o8Mi0rVadVXhhbPwnIi01SBnn-C9dPVhR3biK7pTrcVVBMNwn-CeLgRMzTtpuV20PhPYJ7Pw",
+          "content-length": "66",
+          "cookie": "refresh-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcyMjgyMTksInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.UDrtwyQu2z7Su6KSEVqXGi1_-ZsvU2u2zIh5Fkr2FnqwGEenEdtBGSSRvdkQQ_wVwcfh_25GJv-s0IEgsuX8_g",
+          "postman-token": "ea534b2c-c028-4bda-8c2b-6146d51f3ce8",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.33.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/auth/login",
+        "path_info": "/api/auth/login",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 8,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.controller.AuthApiController",
+      "event": "call",
+      "id": 9,
+      "lineno": 48,
+      "method_id": "login",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.dto.AuthDto$LoginDto",
+          "kind": "req",
+          "name": "loginDto",
+          "object_id": 64237477,
+          "value": "project.lincook.backend.dto.AuthDto$LoginDto@3d42fa5"
+        }
+      ],
+      "path": "project/lincook/backend/controller/AuthApiController.java",
+      "receiver": {
+        "class": "project.lincook.backend.controller.AuthApiController",
+        "object_id": 1183884158,
+        "value": "project.lincook.backend.controller.AuthApiController@4690a37e"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.service.AuthService",
+      "event": "call",
+      "id": 10,
+      "lineno": 36,
+      "method_id": "login",
+      "parameters": [
+        {
+          "class": "project.lincook.backend.dto.AuthDto$LoginDto",
+          "kind": "req",
+          "name": "loginDto",
+          "object_id": 64237477,
+          "value": "project.lincook.backend.dto.AuthDto$LoginDto@3d42fa5"
+        }
+      ],
+      "path": "project/lincook/backend/service/AuthService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.AuthService",
+        "object_id": 623837370,
+        "value": "project.lincook.backend.service.AuthService@252f00ba"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.MemberDetailsServiceImpl",
+      "event": "call",
+      "id": 11,
+      "lineno": 14,
+      "method_id": "loadUserByUsername",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "object_id": 255136544,
+          "value": "rlaqjarl29@gmail.com"
+        }
+      ],
+      "path": "project/lincook/backend/security/MemberDetailsServiceImpl.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.MemberDetailsServiceImpl",
+        "object_id": 1224302486,
+        "value": "project.lincook.backend.security.MemberDetailsServiceImpl@48f95f96"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.MemberDetailsServiceImpl",
+      "event": "call",
+      "id": 12,
+      "lineno": 22,
+      "method_id": "loadUserByUsername",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "email",
+          "object_id": 255136544,
+          "value": "rlaqjarl29@gmail.com"
+        }
+      ],
+      "path": "project/lincook/backend/security/MemberDetailsServiceImpl.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.MemberDetailsServiceImpl",
+        "object_id": 1224302486,
+        "value": "project.lincook.backend.security.MemberDetailsServiceImpl@48f95f96"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.repository.MemberRepository",
+      "event": "call",
+      "id": 13,
+      "lineno": 28,
+      "method_id": "findByUserEmail",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "email",
+          "object_id": 255136544,
+          "value": "rlaqjarl29@gmail.com"
+        }
+      ],
+      "path": "project/lincook/backend/repository/MemberRepository.java",
+      "receiver": {
+        "class": "project.lincook.backend.repository.MemberRepository",
+        "object_id": 52439501,
+        "value": "project.lincook.backend.repository.MemberRepository@32029cd"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "event": "call",
+      "id": 14,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select member0_.member_id as member_i1_9_, member0_.address as address2_9_, member0_.email as email3_9_, member0_.gender as gender4_9_, member0_.latitude as latitude5_9_, member0_.longitude as longitud6_9_, member0_.name as name7_9_, member0_.password as password8_9_, member0_.role as role9_9_ from member member0_ where member0_.email=?"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 15,
+      "parent_id": 14,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.0014215,
+      "event": "return",
+      "id": 16,
+      "parent_id": 13,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 280045918,
+        "value": "[project.lincook.backend.entity.Member@ac9c344]"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00152112,
+      "event": "return",
+      "id": 17,
+      "parent_id": 12,
+      "return_value": {
+        "class": "project.lincook.backend.security.MemberDetailsImpl",
+        "object_id": 730801854,
+        "value": "project.lincook.backend.security.MemberDetailsImpl@2b8f26be"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00152112,
+      "event": "return",
+      "id": 18,
+      "parent_id": 11,
+      "return_value": {
+        "class": "project.lincook.backend.security.MemberDetailsImpl",
+        "object_id": 730801854,
+        "value": "project.lincook.backend.security.MemberDetailsImpl@2b8f26be"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.MemberDetailsImpl",
+      "event": "call",
+      "id": 19,
+      "lineno": 45,
+      "method_id": "isAccountNonLocked",
+      "path": "project/lincook/backend/security/MemberDetailsImpl.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.MemberDetailsImpl",
+        "object_id": 730801854,
+        "value": "project.lincook.backend.security.MemberDetailsImpl@2b8f26be"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 20,
+      "parent_id": 19,
+      "return_value": {
+        "class": "java.lang.Boolean",
+        "object_id": 2048723016,
+        "value": "true"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.MemberDetailsImpl",
+      "event": "call",
+      "id": 21,
+      "lineno": 55,
+      "method_id": "isEnabled",
+      "path": "project/lincook/backend/security/MemberDetailsImpl.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.MemberDetailsImpl",
+        "object_id": 730801854,
+        "value": "project.lincook.backend.security.MemberDetailsImpl@2b8f26be"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 22,
+      "parent_id": 21,
+      "return_value": {
+        "class": "java.lang.Boolean",
+        "object_id": 2048723016,
+        "value": "true"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.MemberDetailsImpl",
+      "event": "call",
+      "id": 23,
+      "lineno": 40,
+      "method_id": "isAccountNonExpired",
+      "path": "project/lincook/backend/security/MemberDetailsImpl.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.MemberDetailsImpl",
+        "object_id": 730801854,
+        "value": "project.lincook.backend.security.MemberDetailsImpl@2b8f26be"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 24,
+      "parent_id": 23,
+      "return_value": {
+        "class": "java.lang.Boolean",
+        "object_id": 2048723016,
+        "value": "true"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.MemberDetailsImpl",
+      "event": "call",
+      "id": 25,
+      "lineno": 50,
+      "method_id": "isCredentialsNonExpired",
+      "path": "project/lincook/backend/security/MemberDetailsImpl.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.MemberDetailsImpl",
+        "object_id": 730801854,
+        "value": "project.lincook.backend.security.MemberDetailsImpl@2b8f26be"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 26,
+      "parent_id": 25,
+      "return_value": {
+        "class": "java.lang.Boolean",
+        "object_id": 2048723016,
+        "value": "true"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.service.AuthService",
+      "event": "call",
+      "id": 27,
+      "lineno": 105,
+      "method_id": "getAuthorities",
+      "parameters": [
+        {
+          "class": "org.springframework.security.authentication.UsernamePasswordAuthenticationToken",
+          "kind": "req",
+          "name": "authentication",
+          "object_id": 1863844712,
+          "value": "UsernamePasswordAuthenticationToken [Principal=project.lincook.backend.security.MemberDetailsImpl@2b8f26be, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[project.lincook.backend.security.MemberDetailsImpl$$Lambda$1334/0x0000021b33b3f950@486f801e]]"
+        }
+      ],
+      "path": "project/lincook/backend/service/AuthService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.AuthService",
+        "object_id": 623837370,
+        "value": "project.lincook.backend.service.AuthService@252f00ba"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 28,
+      "parent_id": 27,
+      "return_value": {
+        "class": "java.lang.String",
+        "object_id": 1368242344,
+        "value": "ROLE_USER"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.service.AuthService",
+      "event": "call",
+      "id": 29,
+      "lineno": 85,
+      "method_id": "generateToken",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "provider",
+          "object_id": 1971469273,
+          "value": "Server"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "email",
+          "object_id": 436729211,
+          "value": "rlaqjarl29@gmail.com"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "authorities",
+          "object_id": 1368242344,
+          "value": "ROLE_USER"
+        }
+      ],
+      "path": "project/lincook/backend/service/AuthService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.AuthService",
+        "object_id": 623837370,
+        "value": "project.lincook.backend.service.AuthService@252f00ba"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.service.RedisService",
+      "event": "call",
+      "id": 30,
+      "lineno": 29,
+      "method_id": "getValues",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "key",
+          "object_id": 892057104,
+          "value": "RT(Server):rlaqjarl29@gmail.com"
+        }
+      ],
+      "path": "project/lincook/backend/service/RedisService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.RedisService",
+        "object_id": 1015676376,
+        "value": "project.lincook.backend.service.RedisService@3c89fdd8"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00010002,
+      "event": "return",
+      "id": 31,
+      "parent_id": 30,
+      "return_value": {
+        "class": "java.lang.String",
+        "object_id": 165609701,
+        "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcyMjgyMTksInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.UDrtwyQu2z7Su6KSEVqXGi1_-ZsvU2u2zIh5Fkr2FnqwGEenEdtBGSSRvdkQQ_wVwcfh_25GJv-s0IEgsuX8_g"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.service.RedisService",
+      "event": "call",
+      "id": 32,
+      "lineno": 34,
+      "method_id": "deleteValues",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "key",
+          "object_id": 1023676080,
+          "value": "RT(Server):rlaqjarl29@gmail.com"
+        }
+      ],
+      "path": "project/lincook/backend/service/RedisService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.RedisService",
+        "object_id": 1015676376,
+        "value": "project.lincook.backend.service.RedisService@3c89fdd8"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 33,
+      "parent_id": 32,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.JwtTokenProvider",
+      "event": "call",
+      "id": 34,
+      "lineno": 61,
+      "method_id": "createToken",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "email",
+          "object_id": 436729211,
+          "value": "rlaqjarl29@gmail.com"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "authorities",
+          "object_id": 1368242344,
+          "value": "ROLE_USER"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtTokenProvider.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtTokenProvider",
+        "object_id": 1781227569,
+        "value": "project.lincook.backend.security.JwtTokenProvider@6a2b6031"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.000202,
+      "event": "return",
+      "id": 35,
+      "parent_id": 34,
+      "return_value": {
+        "class": "project.lincook.backend.dto.AuthDto$TokenDto",
+        "object_id": 1737975837,
+        "value": "project.lincook.backend.dto.AuthDto$TokenDto@6797681d"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.service.AuthService",
+      "event": "call",
+      "id": 36,
+      "lineno": 98,
+      "method_id": "saveRefreshToken",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "provider",
+          "object_id": 1971469273,
+          "value": "Server"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "principal",
+          "object_id": 436729211,
+          "value": "rlaqjarl29@gmail.com"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "refreshToken",
+          "object_id": 1617661911,
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcyMjg1MTcsInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.kvYd3VSn2a657ZGWmAj_CUbtwcvLizQfteOcrp9fcvQcN4Dv6SH9UQ3nS2akIcw5HW4Qlx0jTBp__ib-HLxRqg"
+        }
+      ],
+      "path": "project/lincook/backend/service/AuthService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.AuthService",
+        "object_id": 623837370,
+        "value": "project.lincook.backend.service.AuthService@252f00ba"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.JwtTokenProvider",
+      "event": "call",
+      "id": 37,
+      "lineno": 107,
+      "method_id": "getTokenExpirationTime",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "token",
+          "object_id": 1617661911,
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcyMjg1MTcsInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.kvYd3VSn2a657ZGWmAj_CUbtwcvLizQfteOcrp9fcvQcN4Dv6SH9UQ3nS2akIcw5HW4Qlx0jTBp__ib-HLxRqg"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtTokenProvider.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtTokenProvider",
+        "object_id": 1781227569,
+        "value": "project.lincook.backend.security.JwtTokenProvider@6a2b6031"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.security.JwtTokenProvider",
+      "event": "call",
+      "id": 38,
+      "lineno": 90,
+      "method_id": "getClaims",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "token",
+          "object_id": 1617661911,
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcyMjg1MTcsInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.kvYd3VSn2a657ZGWmAj_CUbtwcvLizQfteOcrp9fcvQcN4Dv6SH9UQ3nS2akIcw5HW4Qlx0jTBp__ib-HLxRqg"
+        }
+      ],
+      "path": "project/lincook/backend/security/JwtTokenProvider.java",
+      "receiver": {
+        "class": "project.lincook.backend.security.JwtTokenProvider",
+        "object_id": 1781227569,
+        "value": "project.lincook.backend.security.JwtTokenProvider@6a2b6031"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00009817,
+      "event": "return",
+      "id": 39,
+      "parent_id": 38,
+      "return_value": {
+        "class": "io.jsonwebtoken.impl.DefaultClaims",
+        "object_id": 786239723,
+        "value": "{exp=1697228517, sub=refresh-token}"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00009817,
+      "event": "return",
+      "id": 40,
+      "parent_id": 37,
+      "return_value": {
+        "class": "java.lang.Long",
+        "object_id": 763013539,
+        "value": "1697228517000"
+      },
+      "thread_id": 54
+    },
+    {
+      "defined_class": "project.lincook.backend.service.RedisService",
+      "event": "call",
+      "id": 41,
+      "lineno": 25,
+      "method_id": "setValuesWithTimeout",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "key",
+          "object_id": 349448082,
+          "value": "RT(Server):rlaqjarl29@gmail.com"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "value",
+          "object_id": 1617661911,
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcyMjg1MTcsInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.kvYd3VSn2a657ZGWmAj_CUbtwcvLizQfteOcrp9fcvQcN4Dv6SH9UQ3nS2akIcw5HW4Qlx0jTBp__ib-HLxRqg"
+        },
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "timeout",
+          "object_id": 901814768,
+          "value": "1697228517000"
+        }
+      ],
+      "path": "project/lincook/backend/service/RedisService.java",
+      "receiver": {
+        "class": "project.lincook.backend.service.RedisService",
+        "object_id": 1015676376,
+        "value": "project.lincook.backend.service.RedisService@3c89fdd8"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00010012,
+      "event": "return",
+      "id": 42,
+      "parent_id": 41,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00019829,
+      "event": "return",
+      "id": 43,
+      "parent_id": 36,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00050031,
+      "event": "return",
+      "id": 44,
+      "parent_id": 29,
+      "return_value": {
+        "class": "project.lincook.backend.dto.AuthDto$TokenDto",
+        "object_id": 1737975837,
+        "value": "project.lincook.backend.dto.AuthDto$TokenDto@6797681d"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.0083213,
+      "event": "return",
+      "id": 45,
+      "parent_id": 10,
+      "return_value": {
+        "class": "project.lincook.backend.dto.AuthDto$TokenDto",
+        "object_id": 1737975837,
+        "value": "project.lincook.backend.dto.AuthDto$TokenDto@6797681d"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.01127058,
+      "event": "return",
+      "id": 46,
+      "parent_id": 9,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 1935445483,
+        "value": "<200 OK OK,[Set-Cookie:\"refresh-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcyMjg1MTcsInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.kvYd3VSn2a657ZGWmAj_CUbtwcvLizQfteOcrp9fcvQcN4Dv6SH9UQ3nS2akIcw5HW4Qlx0jTBp__ib-HLxRqg; Max-Age=7776000; Expires=Thu, 11 Jan 2024 08:21:57 GMT; Secure; HttpOnly\", Authorization:\"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTgzOTQ5MTcsInN1YiI6ImFjY2Vzcy10b2tlbiIsImh0dHBzOi8vbG9jYWxob3N0OjgwODAiOnRydWUsImVtYWlsIjoicmxhcWphcmwyOUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIn0.yQihaRIa6Z-rShJJsrBLvtankri5fUvCA2lUT0M3WFtF6hNAD9qIp3fxIkCJjTKCW0cWIG-BIH0cAJHZ9c2dyg\"]>"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.01147289,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTgzOTQ5MTcsInN1YiI6ImFjY2Vzcy10b2tlbiIsImh0dHBzOi8vbG9jYWxob3N0OjgwODAiOnRydWUsImVtYWlsIjoicmxhcWphcmwyOUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIn0.yQihaRIa6Z-rShJJsrBLvtankri5fUvCA2lUT0M3WFtF6hNAD9qIp3fxIkCJjTKCW0cWIG-BIH0cAJHZ9c2dyg",
+          "Vary": "Origin",
+          "Set-Cookie": "refresh-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2OTcyMjg1MTcsInN1YiI6InJlZnJlc2gtdG9rZW4ifQ.kvYd3VSn2a657ZGWmAj_CUbtwcvLizQfteOcrp9fcvQcN4Dv6SH9UQ3nS2akIcw5HW4Qlx0jTBp__ib-HLxRqg; Max-Age=7776000; Expires=Thu, 11 Jan 2024 08:21:57 GMT; Secure; HttpOnly"
+        },
+        "status": 200
+      },
+      "id": 47,
+      "parent_id": 8,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.01602757,
+      "event": "return",
+      "id": 48,
+      "parent_id": 1,
+      "thread_id": 54
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /api/auth/login (200) - 17:21:57.352",
+    "app": "backend",
+    "language": {
+      "name": "java",
+      "version": "17.0.8+7-LTS",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "framework": {}
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "isCredentialsNonExpired",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/MemberDetailsImpl.java:50"
+                        },
+                        {
+                          "name": "isEnabled",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/MemberDetailsImpl.java:55"
+                        },
+                        {
+                          "name": "isAccountNonExpired",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/MemberDetailsImpl.java:40"
+                        },
+                        {
+                          "name": "isAccountNonLocked",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/MemberDetailsImpl.java:45"
+                        }
+                      ],
+                      "name": "MemberDetailsImpl",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "resolveToken",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:53"
+                        },
+                        {
+                          "name": "doFilterInternal",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+                        }
+                      ],
+                      "name": "JwtAuthenticationFilter",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "validateAccessToken",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtTokenProvider.java:142"
+                        },
+                        {
+                          "name": "getClaims",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtTokenProvider.java:90"
+                        },
+                        {
+                          "name": "getTokenExpirationTime",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtTokenProvider.java:107"
+                        },
+                        {
+                          "name": "createToken",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/JwtTokenProvider.java:61"
+                        }
+                      ],
+                      "name": "JwtTokenProvider",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "loadUserByUsername",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/MemberDetailsServiceImpl.java:22"
+                        },
+                        {
+                          "name": "loadUserByUsername",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/security/MemberDetailsServiceImpl.java:14"
+                        }
+                      ],
+                      "name": "MemberDetailsServiceImpl",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "security",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "setValuesWithTimeout",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/RedisService.java:25"
+                        },
+                        {
+                          "name": "getValues",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/RedisService.java:29"
+                        },
+                        {
+                          "name": "deleteValues",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/RedisService.java:34"
+                        }
+                      ],
+                      "name": "RedisService",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "saveRefreshToken",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/AuthService.java:98"
+                        },
+                        {
+                          "name": "generateToken",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/AuthService.java:85"
+                        },
+                        {
+                          "name": "login",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/AuthService.java:36"
+                        },
+                        {
+                          "name": "getAuthorities",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/service/AuthService.java:105"
+                        }
+                      ],
+                      "name": "AuthService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "findByUserEmail",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/repository/MemberRepository.java:28"
+                        }
+                      ],
+                      "name": "MemberRepository",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "repository",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "login",
+                          "type": "function",
+                          "static": false,
+                          "location": "project/lincook/backend/controller/AuthApiController.java:48"
+                        }
+                      ],
+                      "name": "AuthApiController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                }
+              ],
+              "name": "backend",
+              "type": "package"
+            }
+          ],
+          "name": "lincook",
+          "type": "package"
+        }
+      ],
+      "name": "project",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /api/auth/login"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select member0_.member_id as member_i1_9_, member0_.address as address2_9_, member0_.email as email3_9_, member0_.gender as gender4_9_, member0_.latitude as latitude5_9_, member0_.longitude as longitud6_9_, member0_.name as name7_9_, member0_.password as password8_9_, member0_.role as role9_9_ from member member0_ where member0_.email=?"
+        }
+      ]
+    }
+  ]
+}

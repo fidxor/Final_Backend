@@ -1,0 +1,114 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "resolveToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:53"
+                      },
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+                      }
+                    ],
+                    "name": "JwtAuthenticationFilter",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getClaims",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtTokenProvider.java:90"
+                      },
+                      {
+                        "name": "validateAccessTokenOnlyExpired",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtTokenProvider.java:161"
+                      }
+                    ],
+                    "name": "JwtTokenProvider",
+                    "type": "class"
+                  }
+                ],
+                "name": "security",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "resolveToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/AuthService.java:117"
+                      },
+                      {
+                        "name": "validate",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/AuthService.java:48"
+                      }
+                    ],
+                    "name": "AuthService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "validate",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/AuthApiController.java:66"
+                      }
+                    ],
+                    "name": "AuthApiController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              }
+            ],
+            "name": "backend",
+            "type": "package"
+          }
+        ],
+        "name": "lincook",
+        "type": "package"
+      }
+    ],
+    "name": "project",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "POST /api/auth/validate"
+      }
+    ]
+  }
+]

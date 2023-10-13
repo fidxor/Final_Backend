@@ -1,0 +1,10 @@
+[
+  {
+    "caller": "POST /api/auth/validate",
+    "callee": "project/lincook"
+  },
+  {
+    "caller": "project/lincook",
+    "callee": "POST /api/auth/validate"
+  }
+]

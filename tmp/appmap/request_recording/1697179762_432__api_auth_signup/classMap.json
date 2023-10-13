@@ -1,0 +1,164 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "resolveToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:53"
+                      },
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+                      }
+                    ],
+                    "name": "JwtAuthenticationFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "security",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "save",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/repository/MemberRepository.java:17"
+                      },
+                      {
+                        "name": "findByUserEmail",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/repository/MemberRepository.java:28"
+                      }
+                    ],
+                    "name": "MemberRepository",
+                    "type": "class"
+                  }
+                ],
+                "name": "repository",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "registerUser",
+                        "type": "function",
+                        "static": true,
+                        "location": "project/lincook/backend/entity/Member.java:40"
+                      }
+                    ],
+                    "name": "Member",
+                    "type": "class"
+                  }
+                ],
+                "name": "entity",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "signup",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/AuthApiController.java:30"
+                      }
+                    ],
+                    "name": "AuthApiController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "registerUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/MemberService.java:58"
+                      }
+                    ],
+                    "name": "MemberService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "encodePassword",
+                        "type": "function",
+                        "static": true,
+                        "location": "project/lincook/backend/dto/AuthDto.java:54"
+                      }
+                    ],
+                    "name": "AuthDto$SignupDto",
+                    "type": "class"
+                  }
+                ],
+                "name": "dto",
+                "type": "package"
+              }
+            ],
+            "name": "backend",
+            "type": "package"
+          }
+        ],
+        "name": "lincook",
+        "type": "package"
+      }
+    ],
+    "name": "project",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "POST /api/auth/signup"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select member0_.member_id as member_i1_9_, member0_.address as address2_9_, member0_.email as email3_9_, member0_.gender as gender4_9_, member0_.latitude as latitude5_9_, member0_.longitude as longitud6_9_, member0_.name as name7_9_, member0_.password as password8_9_, member0_.role as role9_9_ from member member0_ where member0_.email=?"
+      },
+      {
+        "type": "query",
+        "name": "insert into member (address, email, gender, latitude, longitude, name, password, role) values (?, ?, ?, ?, ?, ?, ?, ?)"
+      }
+    ]
+  }
+]

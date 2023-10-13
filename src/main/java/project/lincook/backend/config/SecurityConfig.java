@@ -67,7 +67,6 @@ public class SecurityConfig {
 				.antMatchers("/api/mypage/**").authenticated() // 마이페이지 인증 필요
 				.antMatchers("/api/admin/**").hasRole("ADMIN") // 관리자 페이지
 				.anyRequest().permitAll()
-
 				.and()
 				.headers()
 				.frameOptions().sameOrigin();

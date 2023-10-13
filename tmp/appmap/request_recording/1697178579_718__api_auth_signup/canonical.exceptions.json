@@ -1,0 +1,101 @@
+[
+  {
+    "class": "java.sql.SQLException",
+    "message": "Incorrect integer value: 'male' for column 'gender' at row 1",
+    "stack": [
+      "SQLError.java:130",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "SQLError.java:130"
+  },
+  {
+    "class": "java.sql.SQLException",
+    "message": "Incorrect integer value: 'male' for column 'gender' at row 1",
+    "stack": [
+      "SQLError.java:130",
+      "project/lincook/backend/repository/MemberRepository.java:17",
+      "project/lincook/backend/service/MemberService.java:58",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "SQLError.java:130"
+  },
+  {
+    "class": "java.sql.SQLException",
+    "message": "Incorrect integer value: 'male' for column 'gender' at row 1",
+    "stack": [
+      "SQLError.java:130",
+      "project/lincook/backend/service/MemberService.java:58",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "SQLError.java:130"
+  },
+  {
+    "class": "javax.persistence.PersistenceException",
+    "message": "org.hibernate.exception.GenericJDBCException: could not execute statement",
+    "stack": [
+      "ExceptionConverterImpl.java:154",
+      "project/lincook/backend/repository/MemberRepository.java:17",
+      "project/lincook/backend/service/MemberService.java:58",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "ExceptionConverterImpl.java:154"
+  },
+  {
+    "class": "org.hibernate.exception.GenericJDBCException",
+    "message": "could not execute statement",
+    "stack": [
+      "StandardSQLExceptionConverter.java:42",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "StandardSQLExceptionConverter.java:42"
+  },
+  {
+    "class": "org.hibernate.exception.GenericJDBCException",
+    "message": "could not execute statement",
+    "stack": [
+      "StandardSQLExceptionConverter.java:42",
+      "project/lincook/backend/repository/MemberRepository.java:17",
+      "project/lincook/backend/service/MemberService.java:58",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "StandardSQLExceptionConverter.java:42"
+  },
+  {
+    "class": "org.hibernate.exception.GenericJDBCException",
+    "message": "could not execute statement",
+    "stack": [
+      "StandardSQLExceptionConverter.java:42",
+      "project/lincook/backend/service/MemberService.java:58",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "StandardSQLExceptionConverter.java:42"
+  },
+  {
+    "class": "org.springframework.orm.jpa.JpaSystemException",
+    "message": "could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement",
+    "stack": [
+      "HibernateJpaDialect.java:331",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "HibernateJpaDialect.java:331"
+  },
+  {
+    "class": "org.springframework.orm.jpa.JpaSystemException",
+    "message": "could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement",
+    "stack": [
+      "HibernateJpaDialect.java:331",
+      "project/lincook/backend/service/MemberService.java:58",
+      "project/lincook/backend/controller/AuthApiController.java:30",
+      "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+    ],
+    "location": "HibernateJpaDialect.java:331"
+  }
+]

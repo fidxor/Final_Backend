@@ -1,0 +1,8 @@
+[
+  "project/lincook/backend/controller/AuthApiController",
+  "project/lincook/backend/repository/MemberRepository",
+  "project/lincook/backend/security/JwtTokenProvider",
+  "project/lincook/backend/security/MemberDetailsServiceImpl",
+  "project/lincook/backend/service/AuthService",
+  "project/lincook/backend/service/RedisService"
+]

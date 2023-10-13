@@ -1,0 +1,10 @@
+[
+  "project/lincook/backend/common/exception/ExceptionManager",
+  "project/lincook/backend/controller/AuthApiController",
+  "project/lincook/backend/dto/AuthDto$SignupDto",
+  "project/lincook/backend/dto/Response",
+  "project/lincook/backend/entity/Gender",
+  "project/lincook/backend/entity/Member",
+  "project/lincook/backend/repository/MemberRepository",
+  "project/lincook/backend/service/MemberService"
+]

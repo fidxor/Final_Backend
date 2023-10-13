@@ -1,0 +1,7 @@
+[
+  {
+    "route": "POST /error",
+    "parameters": "()",
+    "status": 500
+  }
+]

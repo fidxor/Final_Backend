@@ -1,0 +1,190 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "resolveToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:53"
+                      },
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtAuthenticationFilter.java:30"
+                      }
+                    ],
+                    "name": "JwtAuthenticationFilter",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "validateAccessToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtTokenProvider.java:142"
+                      },
+                      {
+                        "name": "getAuthentication",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtTokenProvider.java:101"
+                      },
+                      {
+                        "name": "getClaims",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtTokenProvider.java:90"
+                      },
+                      {
+                        "name": "validateRefreshToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/JwtTokenProvider.java:115"
+                      }
+                    ],
+                    "name": "JwtTokenProvider",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "loadUserByUsername",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/security/MemberDetailsServiceImpl.java:22"
+                      }
+                    ],
+                    "name": "MemberDetailsServiceImpl",
+                    "type": "class"
+                  }
+                ],
+                "name": "security",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "reissue",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/controller/AuthApiController.java:76"
+                      }
+                    ],
+                    "name": "AuthApiController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "resolveToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/AuthService.java:117"
+                      },
+                      {
+                        "name": "getPrincipal",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/AuthService.java:112"
+                      },
+                      {
+                        "name": "reissue",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/AuthService.java:55"
+                      }
+                    ],
+                    "name": "AuthService",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getValues",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/RedisService.java:29"
+                      },
+                      {
+                        "name": "deleteValues",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/service/RedisService.java:34"
+                      }
+                    ],
+                    "name": "RedisService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "findByUserEmail",
+                        "type": "function",
+                        "static": false,
+                        "location": "project/lincook/backend/repository/MemberRepository.java:28"
+                      }
+                    ],
+                    "name": "MemberRepository",
+                    "type": "class"
+                  }
+                ],
+                "name": "repository",
+                "type": "package"
+              }
+            ],
+            "name": "backend",
+            "type": "package"
+          }
+        ],
+        "name": "lincook",
+        "type": "package"
+      }
+    ],
+    "name": "project",
+    "type": "package"
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select member0_.member_id as member_i1_9_, member0_.address as address2_9_, member0_.email as email3_9_, member0_.gender as gender4_9_, member0_.latitude as latitude5_9_, member0_.longitude as longitud6_9_, member0_.name as name7_9_, member0_.password as password8_9_, member0_.role as role9_9_ from member member0_ where member0_.email=?"
+      }
+    ]
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "POST /api/auth/reissue"
+      }
+    ]
+  }
+]

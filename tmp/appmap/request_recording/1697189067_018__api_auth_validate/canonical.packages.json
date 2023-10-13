@@ -1,0 +1,5 @@
+[
+  "project/lincook/backend/controller",
+  "project/lincook/backend/security",
+  "project/lincook/backend/service"
+]
