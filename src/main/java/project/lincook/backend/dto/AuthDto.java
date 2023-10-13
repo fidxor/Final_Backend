@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import project.lincook.backend.entity.Gender;
+import project.lincook.backend.entity.Role;
 
 public class AuthDto {
 
@@ -30,7 +31,7 @@ public class AuthDto {
 		private Gender gender;
 		private double latitude;
 		private double longitude;
-		private String role;
+		private Role role;
 
 
 		@Builder
@@ -40,7 +41,7 @@ public class AuthDto {
 		                 Gender gender,
 		                 double latitude,
 		                 double longitude,
-		                 String role){
+						 Role role){
 
 			this.email = email;
 			this.password = password;
