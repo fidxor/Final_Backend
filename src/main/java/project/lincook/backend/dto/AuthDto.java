@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.lincook.backend.entity.Gender;
 
 public class AuthDto {
 
@@ -29,6 +30,7 @@ public class AuthDto {
 		private String gender;
 		private double latitude;
 		private double longitude;
+		private String role;
 
 
 		@Builder
@@ -37,19 +39,26 @@ public class AuthDto {
 		                 String name,
 		                 String gender,
 		                 double latitude,
-		                 double longitude){
+		                 double longitude,
+		                 String role){
 
 			this.email = email;
 			this.password = password;
 			this.gender = gender;
 			this.latitude = latitude;
 			this.longitude = longitude;
+			this.role = role;
 		}
 
 		public static SignupDto encodePassword(SignupDto signupDto, String encodedPassword) {
 			SignupDto newSignupDto = new SignupDto();
 			newSignupDto.email = signupDto.getEmail();
 			newSignupDto.password = encodedPassword;
+			newSignupDto.name = signupDto.getName();
+			newSignupDto.gender = signupDto.getGender();
+			newSignupDto.latitude = signupDto.getLatitude();
+			newSignupDto.longitude = signupDto.getLongitude();
+			newSignupDto.role = signupDto.getRole();
 			return newSignupDto;
 		}
 	}

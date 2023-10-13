@@ -24,7 +24,7 @@ public class Member {
     private String email; // Principal
     private String password; // Credential
     private String name;
-    private Gender gender;  // Enum : M, W
+    private String gender;  // Enum : M, W
     private String address;
     private double latitude;
     private double longitude;
@@ -35,10 +35,13 @@ public class Member {
     // == 생성 메서드 == //
     public static Member registerUser(AuthDto.SignupDto signupDto) {
         Member member = new Member();
-
         member.email = signupDto.getEmail();
         member.password = signupDto.getPassword();
         member.role = Role.USER;
+        member.name = signupDto.getName();
+        member.latitude = signupDto.getLatitude();
+        member.longitude = signupDto.getLongitude();
+        member.gender = signupDto.getGender();
 
         return member;
     }
