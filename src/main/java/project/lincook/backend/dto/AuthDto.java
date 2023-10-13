@@ -27,7 +27,7 @@ public class AuthDto {
 		private String email;
 		private String password;
 		private String name;
-		private String gender;
+		private Gender gender;
 		private double latitude;
 		private double longitude;
 		private String role;
@@ -37,7 +37,7 @@ public class AuthDto {
 		public SignupDto(String email,
 		                 String password,
 		                 String name,
-		                 String gender,
+		                 Gender gender,
 		                 double latitude,
 		                 double longitude,
 		                 String role){
