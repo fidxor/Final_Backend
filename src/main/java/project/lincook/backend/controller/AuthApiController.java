@@ -7,13 +7,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import project.lincook.backend.common.exception.ErrorCode;
 import project.lincook.backend.common.exception.LincookAppException;
+import project.lincook.backend.dto.MemberDTO;
 import project.lincook.backend.dto.Response;
 import project.lincook.backend.dto.AuthDto;
+<<<<<<< HEAD
 import project.lincook.backend.security.JwtTokenProvider;
 import project.lincook.backend.security.TokenProvider;
+=======
+import project.lincook.backend.entity.Member;
+import project.lincook.backend.repository.MemberRepository;
+>>>>>>> 91bd49756fa32b6140ea5f8c21bccda32f4054ea
 import project.lincook.backend.service.AuthService;
 import project.lincook.backend.service.MemberService;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -23,7 +30,11 @@ public class AuthApiController {
 	private final AuthService authService;
 	private final MemberService memberService;
 	private final BCryptPasswordEncoder encoder;
+<<<<<<< HEAD
 	private final JwtTokenProvider jwtTokenProvider;
+=======
+	private final MemberRepository memberRepository;
+>>>>>>> 91bd49756fa32b6140ea5f8c21bccda32f4054ea
 
 	private final long COOKIE_EXPIRATION = 7776000; // 90일
 
@@ -51,6 +62,15 @@ public class AuthApiController {
 		// User 등록 및 Refresh Token 저장
 		AuthDto.TokenDto tokenDto = authService.login(loginDto);
 
+		List<Member> members = memberRepository.findByUserEmail(loginDto.getEmail());
+
+		if (members.isEmpty()) {
+			throw new LincookAppException(ErrorCode.NON_EXISTENT_MEMBER, String.format("email: ", loginDto.getEmail()));
+		}
+
+		MemberDTO memberDTO = new MemberDTO(members.get(0).getId(), members.get(0).getEmail(), members.get(0).getLatitude(), members.get(0).getLongitude());
+
+
 		// RT 저장
 		HttpCookie httpCookie = ResponseCookie.from("refresh-token", tokenDto.getRefreshToken())
 				.maxAge(COOKIE_EXPIRATION)
@@ -62,13 +82,13 @@ public class AuthApiController {
 				.header(HttpHeaders.SET_COOKIE, httpCookie.toString())
 				// AT 저장
 				.header(HttpHeaders.AUTHORIZATION, "Bearer " + tokenDto.getAccessToken())
-				.build();
+				.body(memberDTO);
 	}
 
 	@PostMapping("/validate")
-	public ResponseEntity<?> validate(@RequestHeader("Authorization") String requestAccessToken) {
-		String accessToken = authService.resolveToken(requestAccessToken);
-		if (!authService.validate(requestAccessToken) && jwtTokenProvider.validateAccessToken(accessToken)  ) {
+	public ResponseEntity<?> validate(@RequestBody AuthDto.ValidateTokenDto requestAccessToken) {
+		String accessToken = authService.resolveToken(requestAccessToken.getAccessToken());
+		if (!authService.validate(requestAccessToken.getAccessToken()) && jwtTokenProvider.validateAccessToken(accessToken)) {
 			return ResponseEntity.status(HttpStatus.OK).build(); // 재발급 필요X
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); // 재발급 필요
