@@ -84,7 +84,7 @@ public class AuthApiController {
 	@PostMapping("/validate")
 	public ResponseEntity<?> validate(@RequestBody AuthDto.ValidateTokenDto requestAccessToken) {
 		String accessToken = authService.resolveToken(requestAccessToken.getAccessToken());
-		if (!authService.validate(requestAccessToken.getAccessToken()) && jwtTokenProvider.validateAccessToken(accessToken)) {
+		if (accessToken != null && !authService.validate(requestAccessToken.getAccessToken()) && jwtTokenProvider.validateAccessToken(accessToken)) {
 			return ResponseEntity.status(HttpStatus.OK).build(); // 재발급 필요X
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); // 재발급 필요
