@@ -6,11 +6,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import project.lincook.backend.common.exception.ErrorCode;
 import project.lincook.backend.common.exception.LincookAppException;
+import project.lincook.backend.dto.MemberDTO;
 import project.lincook.backend.dto.Response;
 import project.lincook.backend.dto.AuthDto;
+import project.lincook.backend.entity.Member;
+import project.lincook.backend.repository.MemberRepository;
 import project.lincook.backend.service.AuthService;
 import project.lincook.backend.service.MemberService;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -20,6 +24,7 @@ public class AuthApiController {
 	private final AuthService authService;
 	private final MemberService memberService;
 	private final BCryptPasswordEncoder encoder;
+	private final MemberRepository memberRepository;
 
 	private final long COOKIE_EXPIRATION = 7776000; // 90일
 
@@ -47,6 +52,15 @@ public class AuthApiController {
 		// User 등록 및 Refresh Token 저장
 		AuthDto.TokenDto tokenDto = authService.login(loginDto);
 
+		List<Member> members = memberRepository.findByUserEmail(loginDto.getEmail());
+
+		if (members.isEmpty()) {
+			throw new LincookAppException(ErrorCode.NON_EXISTENT_MEMBER, String.format("email: ", loginDto.getEmail()));
+		}
+
+		MemberDTO memberDTO = new MemberDTO(members.get(0).getId(), members.get(0).getEmail(), members.get(0).getLatitude(), members.get(0).getLongitude());
+
+
 		// RT 저장
 		HttpCookie httpCookie = ResponseCookie.from("refresh-token", tokenDto.getRefreshToken())
 				.maxAge(COOKIE_EXPIRATION)
@@ -58,7 +72,7 @@ public class AuthApiController {
 				.header(HttpHeaders.SET_COOKIE, httpCookie.toString())
 				// AT 저장
 				.header(HttpHeaders.AUTHORIZATION, "Bearer " + tokenDto.getAccessToken())
-				.build();
+				.body(memberDTO);
 	}
 
 	@PostMapping("/validate")
