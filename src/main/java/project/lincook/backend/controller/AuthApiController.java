@@ -1,5 +1,6 @@
 package project.lincook.backend.controller;
 
+import antlr.Token;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -8,6 +9,8 @@ import project.lincook.backend.common.exception.ErrorCode;
 import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.Response;
 import project.lincook.backend.dto.AuthDto;
+import project.lincook.backend.security.JwtTokenProvider;
+import project.lincook.backend.security.TokenProvider;
 import project.lincook.backend.service.AuthService;
 import project.lincook.backend.service.MemberService;
 import javax.validation.Valid;
@@ -20,6 +23,7 @@ public class AuthApiController {
 	private final AuthService authService;
 	private final MemberService memberService;
 	private final BCryptPasswordEncoder encoder;
+	private final JwtTokenProvider jwtTokenProvider;
 
 	private final long COOKIE_EXPIRATION = 7776000; // 90일
 
@@ -63,7 +67,8 @@ public class AuthApiController {
 
 	@PostMapping("/validate")
 	public ResponseEntity<?> validate(@RequestHeader("Authorization") String requestAccessToken) {
-		if (authService.validate(requestAccessToken)) {
+		String accessToken = authService.resolveToken(requestAccessToken);
+		if (!authService.validate(requestAccessToken) && jwtTokenProvider.validateAccessToken(accessToken)  ) {
 			return ResponseEntity.status(HttpStatus.OK).build(); // 재발급 필요X
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); // 재발급 필요
