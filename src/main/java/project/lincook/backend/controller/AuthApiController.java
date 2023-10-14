@@ -62,8 +62,9 @@ public class AuthApiController {
 	}
 
 	@PostMapping("/validate")
-	public ResponseEntity<?> validate(@RequestHeader("Authorization") String requestAccessToken) {
-		if (authService.validate(requestAccessToken)) {
+	//public ResponseEntity<?> validate(@RequestHeader("Authorization") String requestAccessToken) {
+	public ResponseEntity<?> validate(@RequestBody AuthDto.ValidateTokenDto requestAccessToken) {
+		if (authService.validate(requestAccessToken.getAccessToken())) {
 			return ResponseEntity.status(HttpStatus.OK).build(); // 재발급 필요X
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); // 재발급 필요

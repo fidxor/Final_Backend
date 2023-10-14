@@ -74,4 +74,10 @@ public class AuthDto {
 			this.refreshToken = refreshToken;
 		}
 	}
+
+	@Getter
+	@NoArgsConstructor(access = AccessLevel.PROTECTED)
+	public static class ValidateTokenDto {
+		private String accessToken;
+	}
 }
