@@ -24,6 +24,7 @@ public class JwtTokenProvider implements InitializingBean {
 
 	private final MemberDetailsServiceImpl userDetailsService;
 	private final RedisService redisService;
+	private JwtAuthenticationFilter jwtAuthenticationFilter;
 
 	private static final String AUTHORITIES_KEY = "role";
 	private static final String EMAIL_KEY = "email";
@@ -138,6 +139,7 @@ public class JwtTokenProvider implements InitializingBean {
 
 	// Filter에서 사용
 	public boolean validateAccessToken(String accessToken) {
+
 		try {
 			if (redisService.getValues(accessToken) != null // NPE 방지
 					&& redisService.getValues(accessToken).equals("logout")) { // 로그아웃 했을 경우
@@ -149,9 +151,10 @@ public class JwtTokenProvider implements InitializingBean {
 					.parseClaimsJws(accessToken);
 			return true;
 		} catch(ExpiredJwtException e) {
-			return true;
+			return false;
 		} catch (Exception e) {
 			return false;
+
 		}
 	}
 
@@ -165,6 +168,7 @@ public class JwtTokenProvider implements InitializingBean {
 			return true;
 		} catch (Exception e) {
 			return false;
+//			유효기간 만료외에는 인증 승인
 		}
 	}
 

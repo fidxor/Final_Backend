@@ -10,13 +10,11 @@ import project.lincook.backend.common.exception.LincookAppException;
 import project.lincook.backend.dto.MemberDTO;
 import project.lincook.backend.dto.Response;
 import project.lincook.backend.dto.AuthDto;
-<<<<<<< HEAD
 import project.lincook.backend.security.JwtTokenProvider;
 import project.lincook.backend.security.TokenProvider;
-=======
 import project.lincook.backend.entity.Member;
 import project.lincook.backend.repository.MemberRepository;
->>>>>>> 91bd49756fa32b6140ea5f8c21bccda32f4054ea
+
 import project.lincook.backend.service.AuthService;
 import project.lincook.backend.service.MemberService;
 import javax.validation.Valid;
@@ -30,11 +28,9 @@ public class AuthApiController {
 	private final AuthService authService;
 	private final MemberService memberService;
 	private final BCryptPasswordEncoder encoder;
-<<<<<<< HEAD
 	private final JwtTokenProvider jwtTokenProvider;
-=======
 	private final MemberRepository memberRepository;
->>>>>>> 91bd49756fa32b6140ea5f8c21bccda32f4054ea
+
 
 	private final long COOKIE_EXPIRATION = 7776000; // 90일
 

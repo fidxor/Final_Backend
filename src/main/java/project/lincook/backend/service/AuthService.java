@@ -61,7 +61,7 @@ public class AuthService {
 		if (refreshTokenInRedis == null) { // Redis에 저장되어 있는 RT가 없을 경우
 			return null; // -> 재로그인 요청
 		}
-
+// todo refresh if validate 추가 수정 필요 ( || -> && 임시 변경 )
 		// 요청된 RT의 유효성 검사 & Redis에 저장되어 있는 RT와 같은지 비교
 		if(!jwtTokenProvider.validateRefreshToken(requestRefreshToken) && !refreshTokenInRedis.equals(requestRefreshToken)) {
 			redisService.deleteValues("RT(" + SERVER + "):" + principal); // 탈취 가능성 -> 삭제
