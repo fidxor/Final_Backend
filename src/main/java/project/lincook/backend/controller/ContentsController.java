@@ -60,7 +60,7 @@ public class ContentsController {
             throw new LincookAppException(ErrorCode.CONTENTS_EMPTY_URL, String.format("title : ", request.title));
         }
 
-        Long contentId = contentsService.addContents(request.member_id, request.title, request.description, request.url);
+        Long contentId = contentsService.addContents(request.memberId, request.title, request.description, request.url);
 
         for (Long id : request.ids) {
             contentsService.addDetailContent(contentId, id);
@@ -81,7 +81,7 @@ public class ContentsController {
     @Data
     static class CreateContentsRequest {
 
-        private Long member_id;
+        private Long memberId;
         private String title;
         private String description;
         private String url;
