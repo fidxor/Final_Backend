@@ -44,7 +44,7 @@ public class DetailContentController {
             throw new LincookAppException(ErrorCode.NON_EXISTENT_CONTENTS, String.format("id :", request.contents_id));
         }
 
-        return makeDtoData(request.memberId, request.latitude, request.longitude, detailContentList);
+        return makeDtoData(request.latitude, request.longitude, detailContentList);
     }
 
     /**
@@ -60,7 +60,7 @@ public class DetailContentController {
             throw new LincookAppException(ErrorCode.NON_EXISTENT_CONTENTS, String.format("id :", request.contents_id));
         }
 
-        return makeDtoData(request.memberId, request.latitude, request.longitude, detailContentList);
+        return makeDtoData(request.latitude, request.longitude, detailContentList);
     }
 
     /**
@@ -70,7 +70,7 @@ public class DetailContentController {
      * @param detailContentList
      * @return
      */
-    private Response makeDtoData(Long memberId, double latitude, double longitude, List<DetailContent> detailContentList) {
+    private Response makeDtoData(double latitude, double longitude, List<DetailContent> detailContentList) {
         List<DetailContentCollect> collect = detailContentList.stream()
                 .map(d -> new DetailContentCollect(d))
                 .collect(Collectors.toList());
@@ -91,9 +91,10 @@ public class DetailContentController {
             // detailcontent에 출력되는 마트 정보에는 해당마트에서 판매하는 상품의 가격과 id가 필요하다.
             List<ProductMartDto> martDtoList = new ArrayList<>();
 
+            SimpleProductDto simpleProductDto = null;
             for (Product product : products) {
 
-                ProductDto productDto = new ProductDto(product);
+                simpleProductDto = new SimpleProductDto(product.getName(), product.getCapacity(), product.getSale_price(), product.getImg_url());
                 // 각각의 Product정보로 Mart정보를 가져온다.
                 Long martId = product.getMart().getId();
 
@@ -105,13 +106,24 @@ public class DetailContentController {
                 // 현재 지정된 위치부터 6Km 이내에 위치한 마트만 리스트에 넣어준다
                 if (kilometer < 400.0) {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
-                    boolean isInBasket = isIncludeBasketProduct(memberId, contentsDto.getId(), martDto.getId(), product.getId());
+//                    boolean isInBasket = isIncludeBasketProduct(memberId, contentsDto.getId(), martDto.getId(), product.getId());
+                    boolean isInBasket = false;
                     ProductMartDto productMartDto = new ProductMartDto(product.getId(), product.getSale_price(), martDto, mart.getLatitude(), mart.getLongitude(), isInBasket);
                     martDtoList.add(productMartDto);
                 }
             }
 
-            DetailContentDto.ResponseDetailContent responseDetailContent = new DetailContentDto.ResponseDetailContent(detailContentDto.getProductDto(), martDtoList);
+            int totalPrice = 0;
+
+            for (ProductMartDto productMart : martDtoList) {
+                totalPrice += productMart.getPrice();
+            }
+
+            int avgPrice = totalPrice / martDtoList.size();
+
+            simpleProductDto.setAvg_price(avgPrice);
+
+            DetailContentDto.ResponseDetailContent responseDetailContent = new DetailContentDto.ResponseDetailContent(simpleProductDto, martDtoList);
 
             // 마트 거리별로 오름차순으로 정렬한다.
             responseDetailContent.getMartDtoList().sort(new DistanceCollectionSort.DistanceCollectionSortByProductMartDto());

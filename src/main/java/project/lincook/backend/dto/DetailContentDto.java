@@ -21,7 +21,7 @@ public class DetailContentDto<T> {
     @Data
     @AllArgsConstructor
     public static class ResponseDetailContent {
-        private ProductDto productDto;
+        private SimpleProductDto simpleProductDto;
         private List<ProductMartDto> martDtoList;
     }
 }
