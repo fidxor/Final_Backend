@@ -1,5 +1,0 @@
-[
-  "project/lincook/backend/controller/AuthApiController",
-  "project/lincook/backend/security/JwtTokenProvider",
-  "project/lincook/backend/service/AuthService"
-]

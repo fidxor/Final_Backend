@@ -1,7 +1,0 @@
-[
-  {
-    "route": "POST /api/auth/reissue",
-    "parameters": "()",
-    "status": 401
-  }
-]

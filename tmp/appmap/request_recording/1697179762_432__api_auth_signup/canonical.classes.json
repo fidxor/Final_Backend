@@ -1,7 +1,0 @@
-[
-  "project/lincook/backend/controller/AuthApiController",
-  "project/lincook/backend/dto/AuthDto$SignupDto",
-  "project/lincook/backend/entity/Member",
-  "project/lincook/backend/repository/MemberRepository",
-  "project/lincook/backend/service/MemberService"
-]

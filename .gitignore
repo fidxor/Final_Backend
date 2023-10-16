@@ -39,5 +39,5 @@ out/
 ### yml ###
 application.yml
 
-### log ###
-logs/
+### appmap ###
+tmp/appmap/
