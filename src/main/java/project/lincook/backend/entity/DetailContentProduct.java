@@ -12,7 +12,7 @@ import static javax.persistence.FetchType.LAZY;
 @Setter
 public class DetailContentProduct {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_content_product_id")
     private Long id;
 

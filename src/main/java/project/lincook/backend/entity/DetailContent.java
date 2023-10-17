@@ -15,7 +15,7 @@ import static javax.persistence.FetchType.LAZY;
 public class DetailContent {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_content_id")
     private Long id;
     @ManyToOne(fetch = LAZY)

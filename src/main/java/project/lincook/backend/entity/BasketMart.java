@@ -12,7 +12,7 @@ import static javax.persistence.FetchType.LAZY;
 @Setter
 public class BasketMart {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "basket_mart_id")
     private Long id;
 
