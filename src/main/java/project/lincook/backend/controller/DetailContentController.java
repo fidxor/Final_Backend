@@ -114,12 +114,16 @@ public class DetailContentController {
             }
 
             int totalPrice = 0;
+            int avgPrice  = 0;
+            if (!martDtoList.isEmpty()) {
 
-            for (ProductMartDto productMart : martDtoList) {
-                totalPrice += productMart.getPrice();
+                for (ProductMartDto productMart : martDtoList) {
+                    totalPrice += productMart.getPrice();
+                }
+
+                avgPrice = totalPrice / martDtoList.size();
             }
 
-            int avgPrice = totalPrice / martDtoList.size();
 
             simpleProductDto.setAvg_price(avgPrice);
 
