@@ -104,7 +104,7 @@ public class DetailContentController {
                 double kilometer = DistanceCal.distance(latitude, longitude, mart.getLatitude(), mart.getLongitude());
 
                 // 현재 지정된 위치부터 8Km 이내에 위치한 마트만 리스트에 넣어준다
-                if (kilometer < 8.0) {
+                if (kilometer < 25.0) {
                     MartDto martDto = new MartDto(mart.getId(), mart.getName(), mart.getAddress(), mart.getPhone(), kilometer);
 //                    boolean isInBasket = isIncludeBasketProduct(memberId, contentsDto.getId(), martDto.getId(), product.getId());
                     boolean isInBasket = false;
